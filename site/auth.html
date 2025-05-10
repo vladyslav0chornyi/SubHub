@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вхід/Реєстрація</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Основний стиль для сторінки */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #2c2c2c, #3e3e3e);
+      margin: 0;
+      padding: 0;
+      color: #e4e4e4;
+    }
+
+    /* Шапка */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #1e1e1e;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    header .menu a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #e4e4e4;
+      transition: color 0.3s;
+    }
+
+    header .menu a:hover,
+    header .menu a.active {
+      color: #f1c40f;
+    }
+
+    header .language-select {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .language-select img {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    /* Контейнер для форми */
+    .auth-container {
+      background: #464646;
+      border-radius: 15px;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      margin: 50px auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .auth-container h2 {
+      text-align: center;
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
+
+    .auth-container .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .auth-container .tabs button {
+      background: none;
+      border: none;
+      color: #e4e4e4;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    .auth-container .tabs button.active {
+      color: #f1c40f;
+      border-bottom: 2px solid #f1c40f;
+    }
+
+    .auth-form {
+      display: none;
+    }
+
+    .auth-form.active {
+      display: block;
+    }
+
+    .auth-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background: #3e3e3e;
+      color: #e4e4e4;
+    }
+
+    .auth-form .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+
+    .auth-form .checkbox-label input {
+      margin: 0;
+    }
+
+    .auth-form .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .auth-form .forgot-password {
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 15px;
+    }
+
+    .auth-form .forgot-password a {
+      color: #f1c40f;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .auth-form .forgot-password a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo">
+      <h1>Ваш Сервіс</h1>
+    </div>
+    <nav class="menu">
+      <a href="index.html#popular">Сервіси</a>
+      <a href="index.html#how-it-works">Як це працює</a>
+      <a href="subscriptions.html">Підписки</a>
+      <a href="faq.html">Питання</a>
+    </nav>
+    <div class="language-select">
+      <img src="img/uk-flag.png" alt="Українська" title="Українська">
+      <img src="img/en-flag.png" alt="English" title="English">
+    </div>
+  </header>
+
+  <div class="auth-container">
+    <h2>Вхід/Реєстрація</h2>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('login')">Увійти</button>
+      <button class="tab-btn" onclick="switchTab('register')">Реєстрація</button>
+    </div>
+    <form class="auth-form active" id="login-form">
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Пароль" required>
+      <div class="checkbox-label">
+        <input type="checkbox" id="remember-me">
+        <label for="remember-me">Запам'ятати мене</label>
+      </div>
+      <div class="forgot-password">
+        <a href="reset-password.html">Забули пароль?</a>
+      </div>
+      <button type="submit">Увійти</button>
+    </form>
+    <form class="auth-form" id="register-form">
+      <input type="text" placeholder="Ім'я" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Пароль" id="password" required>
+      <input type="password" placeholder="Повторіть пароль" id="confirm-password" required>
+      <div class="error" id="password-error"></div>
+      <button type="submit">Зареєструватися</button>
+    </form>
+  </div>
+
+  <script>
+    function switchTab(tab) {
+      document.querySelectorAll('.auth-form').forEach(form => form.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      if (tab === 'login') {
+        document.getElementById('login-form').classList.add('active');
+        document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
+      } else {
+        document.getElementById('register-form').classList.add('active');
+        document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+      }
+    }
+
+    const registerForm = document.getElementById('register-form');
+    registerForm.addEventListener('submit', (e) => {
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      const error = document.getElementById('password-error');
+
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        error.textContent = 'Паролі не співпадають!';
+      } else {
+        error.textContent = '';
+      }
+    });
+  </script>
+</body>
+</html>
