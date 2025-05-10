@@ -1,0 +1,129 @@
+/* Основні стилі */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #fff;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Шапка */
+.header {
+  background-color: #333;
+  padding: 20px 0;
+}
+
+.header .logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.header .nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.header .nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.header .nav a.active,
+.header .nav a:hover {
+  text-decoration: underline;
+}
+
+/* Головний блок */
+.main .hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+}
+
+.main .hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.main .hero p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.main .btn {
+  padding: 15px 30px;
+  font-size: 1rem;
+  color: white;
+  background-color: #FF5722;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.main .btn:hover {
+  background-color: #E64A19;
+  transform: scale(1.05);
+}
+
+/* Популярні підписки */
+.popular-subscriptions {
+  margin: 50px 0;
+}
+
+.subscriptions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.subscription-card {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.subscription-card img {
+  max-width: 100px;
+  margin-bottom: 15px;
+}
+
+.subscription-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.subscription-card button {
+  margin-top: 15px;
+  background-color: #FF5722;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.subscription-card button:hover {
+  background-color: #E64A19;
+  transform: scale(1.05);
+}
+
+/* Футер */
+.footer {
+  background-color: #333;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+}

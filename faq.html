@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Часті питання</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #2c2c2c, #3e3e3e);
+      margin: 0;
+      padding: 0;
+      color: #e4e4e4;
+    }
+
+    header, footer {
+      background: #2c2c2c;
+      color: #e4e4e4;
+      padding: 15px;
+    }
+
+    header h1, footer p {
+      text-align: center;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #e4e4e4;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f1c40f;
+    }
+
+    .faq-container {
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #464646;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
+
+    .faq-item {
+      margin-bottom: 10px;
+      border-radius: 5px;
+      background: #3e3e3e;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+    }
+
+    .faq-item button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      text-align: left;
+      padding: 15px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #e4e4e4;
+      border: none;
+      background: none;
+      cursor: pointer;
+      outline: none;
+      transition: background 0.3s;
+    }
+
+    .faq-item button:hover {
+      background: #4e4e4e;
+    }
+
+    .faq-item button .icon {
+      margin-right: 10px;
+      font-size: 1.2rem;
+      color: #f1c40f;
+    }
+
+    .faq-item .answer {
+      display: none;
+      padding: 15px;
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #e4e4e4;
+      border-top: 1px solid #555;
+      background: #505050;
+      border-radius: 5px;
+    }
+
+    .faq-item.active .answer {
+      display: block;
+    }
+
+    .add-question {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .add-question a {
+      text-decoration: none;
+      color: #f1c40f;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 10px 15px;
+      border: 1px solid #f1c40f;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .add-question a:hover {
+      background: #f1c40f;
+      color: #2c2c2c;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>FAQ - Часті питання</h1>
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="subscriptions.html">Підписки</a>
+      <a href="faq.html" class="active">Питання</a>
+      <a href="transactions.html">Транзакції</a>
+      <a href="support.html">Техпідтримка</a>
+      <a href="feedback.html">Відгуки</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <div class="faq-container">
+      <h2>Часті запитання</h2>
+
+      <div class="faq-item">
+        <button onclick="toggleAnswer(this)">
+          <span><i class="icon">❓</i> Що таке Ваш Сервіс?</span>
+        </button>
+        <div class="answer">
+          <p>Ваш Сервіс — це платформа для управління підписками, консультацій та підтримки користувачів.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button onclick="toggleAnswer(this)">
+          <span><i class="icon">❓</i> Як змінити платіжну картку?</span>
+        </button>
+        <div class="answer">
+          <p>Перейдіть на сторінку "Підписки" і натисніть "Змінити картку" у розділі платіжної інформації.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button onclick="toggleAnswer(this)">
+          <span><i class="icon">❓</i> Як скасувати підписку?</span>
+        </button>
+        <div class="answer">
+          <p>На сторінці "Підписки" у розділі активних підписок натисніть "Скасувати підписку".</p>
+        </div>
+      </div>
+
+      <!-- Приклад для інтерактивного завантаження -->
+      <div id="dynamic-faqs"></div>
+
+      <div class="add-question">
+        <a href="support.html">Задати своє питання</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
+  </footer>
+
+  <script>
+    function toggleAnswer(button) {
+      const faqItem = button.parentElement;
+      faqItem.classList.toggle('active');
+    }
+
+    // Імітація завантаження нових FAQ через API
+    document.addEventListener("DOMContentLoaded", function () {
+      const dynamicFaqs = document.getElementById('dynamic-faqs');
+
+      // Імітація отриманих даних
+      const newFaqs = [
+        { question: 'Як відновити скасовану підписку?', answer: 'Підписку можна відновити через сторінку "Підписки".' },
+        { question: 'Як зв’язатися з техпідтримкою?', answer: 'Використовуйте форму на сторінці "Техпідтримка".' },
+      ];
+
+      newFaqs.forEach(faq => {
+        const faqItem = document.createElement('div');
+        faqItem.className = 'faq-item';
+        faqItem.innerHTML = `
+          <button onclick="toggleAnswer(this)">
+            <span><i class="icon">❓</i> ${faq.question}</span>
+          </button>
+          <div class="answer">
+            <p>${faq.answer}</p>
+          </div>
+        `;
+        dynamicFaqs.appendChild(faqItem);
+      });
+    });
+  </script>
+</body>
+</html>

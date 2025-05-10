@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Особистий кабінет - Ваш Сервіс</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Стилі для вкладок */
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .tabs a {
+      flex: 1;
+      text-align: center;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s, color 0.3s;
+    }
+
+    .tabs a:hover,
+    .tabs a.active {
+      color: #0056b3;
+      border-bottom: 2px solid #007bff;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-pane {
+      padding: 20px;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    /* Стилі для підписок */
+    .subscription-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .subscription-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+
+    .subscription-item.active {
+      background-color: #e6ffe6; /* Зелений фон для активних підписок */
+      border-color: #00a000;
+    }
+
+    .subscription-item button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .subscription-item button.connect {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .subscription-item button.connect:hover {
+      background-color: #0056b3;
+    }
+
+    .subscription-item button.connected {
+      background-color: #00a000;
+      color: #fff;
+      cursor: default;
+    }
+
+    /* Стилі для техпідтримки */
+    .chat-box {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      height: 300px;
+      overflow-y: scroll;
+      background-color: #fff;
+    }
+
+    .chat-input {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .chat-input button {
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .chat-input button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <h1>Ваш Сервіс</h1>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Головна</a>
+        <a href="subscriptions.html">Підписки</a>
+        <a href="faq.html">Питання</a>
+        <a href="transactions.html">Транзакції</a>
+        <a href="support.html">Техпідтримка</a>
+        <a href="feedback.html">Відгуки</a>
+        <a href="contacts.html">Контакти</a>
+      </nav>
+      <div class="user-menu">
+        <a href="login.html" class="login-link">Увійти/Реєстрація</a>
+        <a href="profile.html" class="profile-link">
+          <img src="img/profile-icon.png" alt="Профіль" class="profile-icon">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Головний блок -->
+  <main class="main">
+    <div class="container">
+      <h2>Особистий кабінет</h2>
+      <!-- Вкладки -->
+      <div class="tabs">
+        <a href="#personal-data" class="active" onclick="openTab(event, 'personal-data')">Особисті дані</a>
+        <a href="#subscriptions" onclick="openTab(event, 'subscriptions')">Мої підписки</a>
+        <a href="#transactions" onclick="openTab(event, 'transactions')">Мої транзакції</a>
+        <a href="#support" onclick="openTab(event, 'support')">Техпідтримка</a>
+      </div>
+
+      <!-- Вміст вкладок -->
+      <div class="tab-content active" id="personal-data">
+        <div class="tab-pane">
+          <h3>Особисті дані</h3>
+          <form>
+            <div class="form-group">
+              <label>Ім'я</label>
+              <input type="text" value="Іван">
+            </div>
+            <div class="form-group">
+              <label>Прізвище</label>
+              <input type="text" value="Іванов">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" value="thinkaboutit9393@gmail.com">
+            </div>
+            <div class="form-group">
+              <label>Телеграм</label>
+              <input type="text" placeholder="Юзернейм (без @) або телефон (з +)">
+            </div>
+            <div class="form-group">
+              <label>Новий пароль</label>
+              <input type="password" placeholder="Enter Password">
+            </div>
+            <div class="form-group">
+              <label>Підтвердити пароль</label>
+              <input type="password" placeholder="Enter Password">
+            </div>
+            <p>Дата створення: 2025-04-27</p>
+          </form>
+        </div>
+      </div>
+
+      <div class="tab-content" id="subscriptions">
+        <div class="tab-pane">
+          <h3>Мої підписки</h3>
+          <ul class="subscription-list">
+            <li class="subscription-item active">
+              <span>Netflix</span>
+              <button class="connected">Підключено</button>
+            </li>
+            <li class="subscription-item">
+              <span>Spotify</span>
+              <button class="connect" onclick="connectSubscription(this)">Підключити</button>
+            </li>
+            <li class="subscription-item">
+              <span>ChatGPT Plus</span>
+              <button class="connect" onclick="connectSubscription(this)">Підключити</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tab-content" id="transactions">
+        <div class="tab-pane">
+          <h3>Платіжна статистика</h3>
+          <p>550.00 грн Заощаджено</p>
+          <h4>Платіжні методи</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Сервіси</th>
+                <th>Карта</th>
+                <th>Сплачено до</th>
+                <th>Дія</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Chat GPT Plus</td>
+                <td>444111*85 JSC UNIVERSAL BANK visa</td>
+                <td>2025-05-27 18:21:55</td>
+                <td><button>Змінити карту</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>Транзакції</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Тип</th>
+                <th>Статус</th>
+                <th>Сума, грн</th>
+                <th>Підписка</th>
+                <th>Картка</th>
+                <th>Створено</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>125007</td>
+                <td>Регулярний</td>
+                <td>Успішно</td>
+                <td>289.00</td>
+                <td>Chat GPT Plus</td>
+                <td>444111*85 visa</td>
+                <td>2025-04-27 18:25:04</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-content" id="support">
+        <div class="tab-pane">
+          <h3>Техпідтримка</h3>
+          <div class="chat-box">
+            <!-- Тут відображатимуться повідомлення -->
+          </div>
+          <div class="chat-input">
+            <input type="text" placeholder="Введіть повідомлення...">
+            <button>Відправити</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
+    </div>
+  </footer>
+
+  <script>
+    function openTab(event, tabId) {
+      const tabs = document.querySelectorAll('.tabs a');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      contents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function connectSubscription(button) {
+      const parent = button.closest('.subscription-item');
+      parent.classList.add('active');
+      button.classList.remove('connect');
+      button.classList.add('connected');
+      button.textContent = 'Підключено';
+      button.onclick = null; // Вимкнути подальші кліки
+    }
+  </script>
+</body>
+</html>

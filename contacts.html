@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти - Ваш Сервіс</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #2c2c2c, #3e3e3e);
+      margin: 0;
+      padding: 0;
+      color: #e4e4e4;
+    }
+
+    header {
+      background: #2c2c2c;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      color: #f1c40f;
+      text-align: center;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #e4e4e4;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f1c40f;
+    }
+
+    .contacts-container {
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #464646;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      margin-bottom: 30px;
+    }
+
+    .contact-info h3 {
+      margin-bottom: 10px;
+      color: #f1c40f;
+    }
+
+    .contact-info ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact-info li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .contact-info li a {
+      color: #f1c40f;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-info li a:hover {
+      color: #e2b607;
+    }
+
+    .contact-form {
+      margin-bottom: 30px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background: #3e3e3e;
+      color: #e4e4e4;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    .contact-form button {
+      background: #f1c40f;
+      color: #2c2c2c;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #e2b607;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #2c2c2c;
+      color: #e4e4e4;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="header">
+    <h1>Ваш Сервіс</h1>
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="subscriptions.html">Підписки</a>
+      <a href="faq.html">Питання</a>
+      <a href="transactions.html">Транзакції</a>
+      <a href="support.html">Техпідтримка</a>
+      <a href="feedback.html">Відгуки</a>
+      <a href="contacts.html" class="active">Контакти</a>
+    </nav>
+  </header>
+
+  <!-- Головний блок -->
+  <main class="main">
+    <div class="contacts-container">
+      <h2>Контакти</h2>
+
+      <!-- Інформація про контакти -->
+      <div class="contact-info">
+        <h3>Зв'яжіться з нами через email</h3>
+        <ul>
+          <li><a href="mailto:support@example.com">support@example.com</a> — Технічна підтримка</li>
+          <li><a href="mailto:info@example.com">info@example.com</a> — Загальні питання</li>
+          <li><a href="mailto:billing@example.com">billing@example.com</a> — Фінансові питання</li>
+        </ul>
+      </div>
+
+      <!-- Форма для зв'язку -->
+      <div class="contact-form">
+        <h3>Напишіть нам</h3>
+        <form id="contactForm">
+          <label for="name">Ім'я (необов'язково)</label>
+          <input type="text" id="name" placeholder="Ваше ім'я">
+
+          <label for="email">Email (необов'язково)</label>
+          <input type="email" id="email" placeholder="Ваш email">
+
+          <label for="message">Повідомлення</label>
+          <textarea id="message" required placeholder="Напишіть ваше повідомлення тут..."></textarea>
+
+          <button type="submit">Надіслати</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
+  </footer>
+
+  <script>
+    // Валідація форми
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      if (email && !/\S+@\S+\.\S+/.test(email)) {
+        alert('Будь ласка, введіть коректний email.');
+        return;
+      }
+
+      if (!message.trim()) {
+        alert('Поле "Повідомлення" не може бути пустим.');
+        return;
+      }
+
+      alert('Ваше повідомлення успішно надіслано!');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

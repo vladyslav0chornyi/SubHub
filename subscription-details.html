@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Деталі підписки - Ваш Сервіс</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #2c2c2c, #3e3e3e);
+      margin: 0;
+      padding: 0;
+      color: #e4e4e4;
+    }
+
+    header {
+      background: #2c2c2c;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      color: #f1c40f;
+      text-align: center;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #e4e4e4;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f1c40f;
+    }
+
+    .details-container {
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #464646;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
+
+    .subscription-info {
+      margin-bottom: 30px;
+    }
+
+    .subscription-info h3 {
+      color: #f1c40f;
+      margin-bottom: 10px;
+    }
+
+    .subscription-info p {
+      font-size: 1rem;
+      margin: 5px 0;
+      color: #e4e4e4;
+    }
+
+    .benefits {
+      margin-top: 30px;
+      padding: 15px;
+      border-radius: 5px;
+      background: #3e3e3e;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .benefits h3 {
+      color: #f1c40f;
+      margin-bottom: 15px;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .benefit-item img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .benefit-item p {
+      margin: 0;
+      font-size: 1rem;
+      color: #e4e4e4;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .actions button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background: #f1c40f;
+      color: #2c2c2c;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .actions button:hover {
+      background: #e2b607;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #2c2c2c;
+      color: #e4e4e4;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="header">
+    <h1>Ваш Сервіс</h1>
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="subscriptions.html" class="active">Підписки</a>
+      <a href="faq.html">Питання</a>
+      <a href="transactions.html">Транзакції</a>
+      <a href="support.html">Техпідтримка</a>
+      <a href="feedback.html">Відгуки</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+  </header>
+
+  <!-- Головний блок -->
+  <main class="main">
+    <div class="details-container">
+      <h2>Деталі підписки</h2>
+
+      <!-- Інформація про підписку -->
+      <div class="subscription-info">
+        <h3>Назва: Chat GPT Plus</h3>
+        <p>Опис: Підписка на доступ до додаткових функцій Chat GPT.</p>
+        <p>Дата початку: 2025-01-01</p>
+        <p>Дата закінчення: 2025-12-31</p>
+        <p>Вартість: $20/місяць</p>
+      </div>
+
+      <!-- Переваги підписки -->
+      <div class="benefits">
+        <h3>Переваги платної версії</h3>
+        <div class="benefit-item">
+          <img src="icons/no-ads.png" alt="Без реклами">
+          <p>Без реклами</p>
+        </div>
+        <div class="benefit-item">
+          <img src="icons/speed.png" alt="Швидший доступ">
+          <p>Швидший доступ до сервісу</p>
+        </div>
+        <div class="benefit-item">
+          <img src="icons/premium-features.png" alt="Додаткові функції">
+          <p>Додаткові преміум-функції</p>
+        </div>
+      </div>
+
+      <!-- Дії -->
+      <div class="actions">
+        <button onclick="goBack()">Повернутися</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
+  </footer>
+
+  <script>
+    function goBack() {
+      window.location.href = 'subscriptions.html';
+    }
+  </script>
+</body>
+</html>

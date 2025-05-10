@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Транзакції - Ваш Сервіс</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #2c2c2c, #3e3e3e);
+      margin: 0;
+      padding: 0;
+      color: #e4e4e4;
+    }
+
+    header, footer {
+      background: #2c2c2c;
+      color: #e4e4e4;
+      padding: 15px;
+    }
+
+    header h1, footer p {
+      text-align: center;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #e4e4e4;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f1c40f;
+    }
+
+    .transactions-container {
+      margin: 20px auto;
+      max-width: 900px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #464646;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      color: #e4e4e4;
+    }
+
+    .stats div {
+      text-align: center;
+      background: #3e3e3e;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    table th, table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #555;
+    }
+
+    table th {
+      background: #3e3e3e;
+      color: #f1c40f;
+    }
+
+    table tr {
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    table tr:hover {
+      background: #4e4e4e;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #3e3e3e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      max-width: 500px;
+    }
+
+    .modal h3 {
+      color: #f1c40f;
+      margin-bottom: 15px;
+    }
+
+    .modal p {
+      margin: 10px 0;
+      color: #e4e4e4;
+    }
+
+    .modal .close-btn {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      background: #f1c40f;
+      color: #2c2c2c;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Транзакції</h1>
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="subscriptions.html">Підписки</a>
+      <a href="faq.html">Питання</a>
+      <a href="transactions.html" class="active">Транзакції</a>
+      <a href="support.html">Техпідтримка</a>
+      <a href="feedback.html">Відгуки</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <div class="transactions-container">
+      <h2>Історія Транзакцій</h2>
+
+      <div class="stats">
+        <div>
+          <h3>Загальна кількість</h3>
+          <p id="totalTransactions">0</p>
+        </div>
+        <div>
+          <h3>Загальна сума</h3>
+          <p id="totalAmount">0 ₴</p>
+        </div>
+        <div>
+          <h3>Середня сума</h3>
+          <p id="averageAmount">0 ₴</p>
+        </div>
+      </div>
+
+      <table id="transactionsTable">
+        <thead>
+          <tr>
+            <th>Дата</th>
+            <th>Опис</th>
+            <th>Сума (₴)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Дані додаються динамічно -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="modal" id="transactionModal">
+    <h3>Деталі Транзакції</h3>
+    <p><strong>Дата:</strong> <span id="modalDate"></span></p>
+    <p><strong>Час:</strong> <span id="modalTime"></span></p>
+    <p><strong>Опис:</strong> <span id="modalDescription"></span></p>
+    <p><strong>Сума:</strong> <span id="modalAmount"></span> ₴</p>
+    <p><strong>Статус:</strong> <span id="modalStatus"></span></p>
+    <p><strong>ID Транзакції:</strong> <span id="modalId"></span></p>
+    <a class="close-btn" onclick="closeModal()">Закрити</a>
+  </div>
+
+  <script>
+    const transactions = [
+      { id: 'T001', date: '2025-05-01', time: '14:32', description: 'Оплата підписки Chat GPT Plus', amount: 149.99, status: 'Успішно' },
+      { id: 'T002', date: '2025-04-15', time: '10:15', description: 'Оплата підписки Music Premium', amount: 99.99, status: 'Успішно' },
+      { id: 'T003', date: '2025-03-10', time: '18:45', description: 'Оплата підписки Video Stream', amount: 199.99, status: 'Успішно' },
+    ];
+
+    function renderTransactions() {
+      const tableBody = document.querySelector('#transactionsTable tbody');
+      const totalTransactions = document.getElementById('totalTransactions');
+      const totalAmount = document.getElementById('totalAmount');
+      const averageAmount = document.getElementById('averageAmount');
+
+      let sum = 0;
+
+      transactions.forEach(transaction => {
+        sum += transaction.amount;
+
+        const row = document.createElement('tr');
+        row.onclick = () => openModal(transaction);
+        row.innerHTML = `
+          <td>${transaction.date}</td>
+          <td>${transaction.description}</td>
+          <td>${transaction.amount.toFixed(2)} ₴</td>
+        `;
+        tableBody.appendChild(row);
+      });
+
+      totalTransactions.textContent = transactions.length;
+      totalAmount.textContent = sum.toFixed(2) + ' ₴';
+      averageAmount.textContent = (sum / transactions.length).toFixed(2) + ' ₴';
+    }
+
+    function openModal(transaction) {
+      document.getElementById('modalDate').textContent = transaction.date;
+      document.getElementById('modalTime').textContent = transaction.time;
+      document.getElementById('modalDescription').textContent = transaction.description;
+      document.getElementById('modalAmount').textContent = transaction.amount.toFixed(2);
+      document.getElementById('modalStatus').textContent = transaction.status;
+      document.getElementById('modalId').textContent = transaction.id;
+
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('transactionModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('transactionModal').style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', renderTransactions);
+  </script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ваш Сервіс</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #e4e4e4;
+      background: #2c2c2c;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1f1f1f;
+      border-bottom: 2px solid #f1c40f;
+      padding: 15px 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      max-height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      color: #f1c40f;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #e4e4e4;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f1c40f;
+    }
+
+    .auth-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .login-btn {
+      background: #f1c40f;
+      color: #2c2c2c;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-btn:hover {
+      background: #e0b600;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .user-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #f1c40f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #2c2c2c;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .user-icon:hover {
+      background-color: #e0b600;
+      transform: scale(1.1);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 40px;
+      background: linear-gradient(135deg, #3e3e3e, #464646);
+      color: #f1c40f;
+      border-bottom: 3px solid #f1c40f;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #2c2c2c;
+      background: #f1c40f;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: #e0b600;
+    }
+
+    section {
+      margin: 40px 0;
+      padding: 20px;
+      border-radius: 10px;
+      background: #3e3e3e;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    section h2 {
+      text-align: center;
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
+
+    .subscriptions-slider, .reviews-slider {
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .subscriptions-track, .reviews-track {
+      display: flex;
+      transition: transform 0.5s linear;
+    }
+
+    .subscription-card, .review-card {
+      background: #2c2c2c;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      min-width: 250px;
+      margin: 0 10px;
+      color: #e4e4e4;
+    }
+
+    .subscription-card img, .review-card img {
+      max-width: 100px;
+      margin-bottom: 15px;
+    }
+
+    .subscription-card h3, .review-card h3 {
+      font-size: 1.3rem;
+      color: #f1c40f;
+      margin-bottom: 10px;
+    }
+
+    .subscription-card p, .review-card p {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .instruction {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .instruction video {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .instruction-text {
+      flex: 1;
+      text-align: left;
+      background: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .instruction-text h3 {
+      font-size: 1.8rem;
+      color: #f1c40f;
+      margin-bottom: 10px;
+    }
+
+    .instruction-text ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .instruction-text ul li {
+      margin-bottom: 10px;
+    }
+
+    .instruction-text a {
+      color: #f1c40f;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .instruction-text a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #1f1f1f;
+      border-top: 2px solid #f1c40f;
+    }
+
+    .footer a {
+      color: #f1c40f;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .footer a:hover {
+      color: #e0b600;
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="Ваш Сервіс">
+      <h1>Ваш Сервіс</h1>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Головна</a>
+      <a href="subscriptions.html">Підписки</a>
+      <a href="faq.html">Питання</a>
+      <a href="transactions.html">Транзакції</a>
+      <a href="support.html">Техпідтримка</a>
+      <a href="feedback.html">Відгуки</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+    <div class="auth-section">
+      <button class="login-btn" id="login-btn">Увійти</button>
+      <div class="user-icon" id="user-icon" style="display: none;"></div>
+    </div>
+  </header>
+
+  <!-- Головний блок -->
+  <main>
+    <section class="hero">
+      <h2>Керуйте своїми підписками зручно!</h2>
+      <p>Найкраще рішення для економії часу та грошей. Контролюйте всі сервіси в одному місці.</p>
+      <a href="subscriptions.html" class="btn-primary">Розпочати</a>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
+    <a href="contacts.html">Зв’язатися з нами</a>
+  </footer>
+
+  <script>
+    // Логіка для відображення кнопки або профілю
+    const isLoggedIn = false; // Замінити на логіку перевірки авторизації
+
+    const loginButton = document.getElementById('login-btn');
+    const userIcon = document.getElementById('user-icon');
+
+    if (isLoggedIn) {
+      loginButton.style.display = 'none';
+      userIcon.style.display = 'flex';
+      userIcon.textContent = 'В'; // Рандомна літера, наприклад, перша літера імені
+    } else {
+      loginButton.style.display = 'block';
+      userIcon.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
