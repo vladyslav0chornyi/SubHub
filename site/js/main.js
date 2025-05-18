@@ -61,7 +61,7 @@ function afterHeaderLoaded() {
   const mainAuthBtn = document.querySelector('.btn-primary');
   if (mainAuthBtn) {
     mainAuthBtn.addEventListener('click', (e) => {
-      // Якщо auth.html — не потрібно, інакше:
+      // Якщо login.html — не потрібно, інакше:
       // e.preventDefault();
       // alert('Відкривається форма входу/реєстрації');
     });

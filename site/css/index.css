@@ -1,0 +1,223 @@
+/*
+  index.css — стилі лише для головної сторінки (index.html).
+  Тут: hero, instruction, carousel, reviews, секції, адаптивність.
+*/
+
+/* Hero-секція зверху сторінки */
+.hero {
+  text-align: center;                    /* Центрування тексту */
+  padding: 110px 10px 55px 10px;         /* Відступи */
+  background: linear-gradient(135deg, #3e3e3e, #464646); /* Градієнтний фон */
+  color: var(--accent);                  /* Жовтий текст */
+  border-bottom: 3px solid var(--accent);/* Лінія знизу */
+}
+
+/* Заголовок Hero */
+.hero h2 {
+  font-size: 2.7rem;                     /* Великий заголовок */
+  margin-bottom: 14px;                   /* Відступ знизу */
+}
+
+/* Опис Hero */
+.hero p {
+  font-size: 1.18rem;                    /* Трохи більший текст */
+  margin-bottom: 20px;                   /* Відступ */
+  color: var(--main-fg);                 /* Світлий текст */
+}
+
+/* ==== SECTION SEPARATORS ==== */
+/* Відступи для секцій */
+section {
+  margin: 48px 0 32px 0;                 /* Зовнішні відступи */
+  padding: 32px 0 24px 0;                /* Внутрішні */
+  border-bottom: 2px solid #393939;      /* Лінія між секціями */
+  border-radius: 0;                      /* Без закруглення */
+  background: none;                      /* Прозорий фон */
+}
+section:last-of-type {
+  border-bottom: none;                   /* Остання секція без лінії */
+}
+
+/* ==== CAROUSEL ==== */
+/* Блок-карусель з підписками/відгуками */
+.carousel {
+  position: relative;                    /* Для стрілок */
+  display: flex;                         /* Flex-контейнер */
+  align-items: center;                   /* Центрування */
+  gap: 8px;                              /* Відстань між елементами */
+  width: 100vw;                          /* На всю ширину */
+  justify-content: center;               /* Центр */
+}
+
+/* Трек для слайдів */
+.carousel-track {
+  display: flex;                         /* Ряд карточок */
+  overflow: hidden;                      /* Не виходять за межі */
+  width: 92vw;                           /* Ширина треку */
+  scroll-behavior: smooth;               /* Плавна прокрутка */
+  gap: 0;
+}
+
+/* Карточки підписок/відгуків */
+.subscription-card,
+.review-card {
+  background: var(--card-bg);            /* Темний фон */
+  color: var(--main-fg);                 /* Світлий текст */
+  border-radius: var(--radius);          /* Закруглення */
+  min-width: 220px;                      /* Мінімальна ширина */
+  max-width: 260px;                      /* Максимальна */
+  margin: 0 8px;                         /* Відступи між карточками */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.22); /* Тінь */
+  padding: 17px 10px 14px 10px;          /* Внутрішні */
+  flex: 0 0 auto;                        /* Не розтягуються */
+  text-align: center;                    /* Текст по центру */
+}
+
+/* Картинка підписки */
+.subscription-card img {
+  max-width: 85px;                       /* Максимальна ширина */
+  margin-bottom: 15px;                   /* Відступ знизу */
+}
+
+/* Заголовок карточки */
+.subscription-card h3,
+.review-card h3 {
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin: 0 0 7px 0;
+}
+
+/* Опис карточки */
+.subscription-card p,
+.review-card p {
+  font-size: 1rem;
+  color: var(--main-fg);
+}
+
+/* Стрілки каруселі */
+.carousel-arrow {
+  background: #2a2a2a;
+  color: var(--accent);
+  border: none;
+  border-radius: 50%;
+  padding: 12px 16px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  z-index: 2;
+  margin: 0 4px;
+  opacity: 0.8;
+}
+
+/* Наведення/фокус на стрілках */
+.carousel-arrow:hover,
+.carousel-arrow:focus {
+  background: var(--accent);
+  color: #2a2a2a;
+  outline: none;
+  opacity: 1;
+}
+
+/* ==== INSTRUCTION ==== */
+/* Блок інструкцій */
+.instruction {
+  margin: 44px 0;
+}
+
+/* Внутрішній flex для інструкції */
+.instruction__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  align-items: center;
+}
+
+/* Відеоінструкція */
+.instruction__video {
+  flex: 1 1 300px;
+  max-width: 430px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Текст інструкції */
+.instruction-text {
+  flex: 2 1 350px;
+  background: var(--card-bg);
+  padding: 25px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Заголовок інструкції */
+.instruction-text h3 {
+  font-size: 1.45rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+/* Список кроків інструкції */
+.instruction-text ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+}
+.instruction-text ul li {
+  margin-bottom: 10px;
+  font-size: 1.07rem;
+  color: var(--main-fg);
+}
+
+/* ==== REVIEWS ==== */
+/* Секція відгуків */
+.reviews {
+  margin: 40px 0;
+}
+
+/* Карточка відгуку */
+.review-card {
+  min-width: 220px;
+  max-width: 270px;
+  margin: 0 8px;
+}
+
+/* ==== ADAPTIVITY ==== */
+
+/* Для екранів <1500px — ширший карусельний трек */
+@media (max-width: 1500px) {
+  .carousel-track { width: 97vw; }
+}
+
+/* Для екранів <900px — вертикальна інструкція, ширший трек */
+@media (max-width: 900px) {
+  .instruction__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .instruction__video,
+  .instruction-text {
+    max-width: 100%;
+  }
+  .carousel-track {
+    flex-wrap: nowrap;
+    width: 99vw;
+  }
+}
+
+/* Для мобільних — менший hero, компактні карточки */
+@media (max-width: 600px) {
+  .hero h2 {
+    font-size: 1.45rem;
+  }
+  .subscription-card,
+  .review-card {
+    min-width: 80vw;
+    max-width: 95vw;
+    padding: 14px 6px;
+  }
+  .carousel-arrow {
+    padding: 8px 11px;
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вхід/Реєстрація</title>
+  <!-- Загальні стилі для всіх сторінок -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Специфічні стилі для сторінки входу/реєстрації -->
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo">
+        <span class="logo__title">Ваш Сервіс</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#popular-subscriptions" class="nav-btn">Сервіси</a>
+        <a href="index.html#instruction" class="nav-btn">Як це працює</a>
+        <a href="subscriptions.html" class="nav-btn">Підписки</a>
+        <a href="faq.html" class="nav-btn">Питання</a>
+        <a href="feedback.html" class="nav-btn">Відгуки</a>
+      </nav>
+      <div class="header-side">
+        <div class="lang-dropdown">
+          <button class="lang-btn">
+            <span class="lang-current">UA</span>
+            <span class="arrow">&#9660;</span>
+          </button>
+          <ul class="lang-list">
+            <li class="active">UA</li>
+            <li>EN</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="auth-page-wrapper">
+      <div class="auth-container">
+        <h2>Вхід/Реєстрація</h2>
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab('login')">Увійти</button>
+          <button class="tab-btn" onclick="switchTab('register')">Реєстрація</button>
+        </div>
+        <form class="auth-form active" id="login-form" autocomplete="on">
+          <div class="input-group">
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" placeholder="Введіть email" required autocomplete="username">
+          </div>
+          <div class="input-group">
+            <label for="login-password">Пароль</label>
+            <input id="login-password" type="password" placeholder="Введіть пароль" required autocomplete="current-password">
+          </div>
+          <div class="form-row">
+            <div class="checkbox-label">
+              <input type="checkbox" id="remember-me">
+              <label for="remember-me">Запам'ятати мене</label>
+            </div>
+            <div class="forgot-password">
+              <a href="reset-password.html">Забули пароль?</a>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Увійти</button>
+        </form>
+
+        <form class="auth-form" id="register-form" autocomplete="on">
+          <div class="input-group">
+            <label for="reg-name">Ім'я</label>
+            <input id="reg-name" type="text" placeholder="Ваше ім'я" required autocomplete="name">
+          </div>
+          <div class="input-group">
+            <label for="reg-email">Email</label>
+            <input id="reg-email" type="email" placeholder="Введіть email" required autocomplete="email">
+          </div>
+          <div class="input-group">
+            <label for="password">Пароль</label>
+            <input type="password" placeholder="Введіть пароль" id="password" required autocomplete="new-password">
+          </div>
+          <div class="input-group">
+            <label for="confirm-password">Повторіть пароль</label>
+            <input type="password" placeholder="Повторіть пароль" id="confirm-password" required autocomplete="new-password">
+          </div>
+          <div class="error" id="password-error"></div>
+          <button type="submit" class="btn btn-primary btn-block">Зареєструватися</button>
+        </form>
+        <div class="auth-or">
+          <span>АБО</span>
+        </div>
+        <div class="social-login">
+          <button class="btn-social google" title="Google"><img src="img/google.svg" alt="Google"></button>
+          <button class="btn-social facebook" title="Facebook"><img src="img/facebook.svg" alt="Facebook"></button>
+          <button class="btn-social github" title="GitHub"><img src="img/github.svg" alt="GitHub"></button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
+  </footer>
+
+  <script>
+    // Переключення вкладок "Увійти"/"Реєстрація"
+    function switchTab(tab) {
+      document.querySelectorAll('.auth-form').forEach(form => form.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      if (tab === 'login') {
+        document.getElementById('login-form').classList.add('active');
+        document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
+      } else {
+        document.getElementById('register-form').classList.add('active');
+        document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+      }
+    }
+
+    // Перевірка паролів у реєстрації
+    const registerForm = document.getElementById('register-form');
+    registerForm.addEventListener('submit', (e) => {
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      const error = document.getElementById('password-error');
+
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        error.textContent = 'Паролі не співпадають!';
+      } else {
+        error.textContent = '';
+      }
+    });
+
+    // Логіка для дропдауну мови
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.nextElementSibling.classList.toggle('show');
+      });
+    });
+    document.body.addEventListener('click', function() {
+      document.querySelectorAll('.lang-list').forEach(list => list.classList.remove('show'));
+    });
+    document.querySelectorAll('.lang-list li').forEach(li => {
+      li.addEventListener('click', function(){
+        document.querySelector('.lang-current').textContent = this.textContent;
+        document.querySelectorAll('.lang-list li').forEach(el => el.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
