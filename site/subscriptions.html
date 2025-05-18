@@ -13,39 +13,28 @@
 
   <main class="main">
     <div class="subscriptions-container">
-      <h2>Мої Підписки</h2>
+      <section>
+        <h2 class="subs-section-title">Мої активні підписки</h2>
+        <div class="subs-grid" id="active-subs"></div>
+        <div id="no-active-msg" style="display:none; color:#b6b6b6; text-align:center; margin-top:18px;">Немає активних підписок.</div>
+      </section>
 
-      <div class="subscription-item active">
-        <h3>Chat GPT Plus</h3>
-        <p>Статус: Активна</p>
-        <p>Дата початку: 2025-01-01</p>
-        <div class="actions">
-          <button onclick="viewDetails('Chat GPT Plus')">Переглянути деталі</button>
-          <button onclick="openModal('cancel')">Скасувати підписку</button>
-        </div>
-      </div>
-
-      <div class="subscription-item inactive">
-        <h3>Music Premium</h3>
-        <p>Статус: Закінчилась</p>
-        <p>Дата початку: 2023-07-15</p>
-        <p>Дата закінчення: 2025-01-01</p>
-        <div class="actions">
-          <button onclick="viewDetails('Music Premium')">Переглянути деталі</button>
-        </div>
-      </div>
-
-      <div class="payment-info">
-        <h3>Платіжна картка</h3>
-        <p>Карта: 4441 **** **** 5585 (VISA)</p>
-        <button onclick="openModal('changeCard')">Змінити картку</button>
-      </div>
+      <section>
+        <h2 class="subs-section-title">Всі підписки</h2>
+        <div class="subs-grid" id="all-subs"></div>
+      </section>
     </div>
   </main>
 
-  <div class="modal" id="modal">
-    <div class="modal-content" id="modalContent">
-      <!-- Контент модального вікна змінюється динамічно -->
+  <!-- Модальне вікно -->
+  <div id="modal-bg">
+    <div id="sub-modal" tabindex="-1">
+      <button class="modal-close" onclick="closeModal()" aria-label="Закрити">&times;</button>
+      <img src="" alt="logo" class="modal-logo" id="modalLogo">
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <ul class="modal-detail-list" id="modalDetails"></ul>
+      <div class="modal-footer" id="modalFooter"></div>
     </div>
   </div>
 
@@ -54,48 +43,125 @@
 
   <script src="js/main.js"></script>
   <script>
-    function openModal(type) {
-      const modal = document.getElementById('modal');
-      const content = document.getElementById('modalContent');
+    // Приклад демо-даних користувача (буде братись з особистого кабінету/бекенду)
+    const userSubscriptions = [
+      { id: "1", expiry: "2025-11-17", active: true },    // Netflix - активна
+      { id: "5", expiry: "2025-07-01", active: true },    // Sweet.TV - активна
+      { id: "7", expiry: "2024-12-12", active: false },   // Apple One - неактивна (закінчилась)
+      { id: "10", expiry: "2025-05-26", active: true }    // ChatGPT Plus - активна
+    ];
 
-      if (type === 'cancel') {
-        content.innerHTML = `
-          <h3>Ви впевнені?</h3>
-          <p>Підписка залишиться активною до кінця оплаченого періоду.</p>
-          <button onclick="cancelSubscription()">Так, скасувати</button>
-          <button onclick="closeModal()">Ні, повернутися</button>
-        `;
-      } else if (type === 'changeCard') {
-        content.innerHTML = `
-          <h3>Змінити платіжну картку</h3>
-          <input type="text" placeholder="Номер картки" maxlength="16">
-          <input type="text" placeholder="Дата закінчення (MM/YY)" maxlength="5">
-          <input type="text" placeholder="CVV" maxlength="3">
-          <button onclick="saveCard()">Зберегти</button>
-          <button onclick="closeModal()">Скасувати</button>
-        `;
+    let allSubs = [];
+    fetch('data/subscriptions.json')
+      .then(res => res.json())
+      .then(data => {
+        allSubs = data;
+        renderSubscriptions();
+      });
+
+    function renderSubscriptions() {
+      const activeGrid = document.getElementById('active-subs');
+      const allGrid = document.getElementById('all-subs');
+      activeGrid.innerHTML = '';
+      allGrid.innerHTML = '';
+
+      // Активні підписки
+      let now = new Date();
+      let activeSubs = [];
+      userSubscriptions.forEach(us => {
+        let found = allSubs.find(s => s.id === us.id);
+        if (found && us.active && new Date(us.expiry) > now) {
+          activeSubs.push({ ...found, userExpiry: us.expiry });
+        }
+      });
+
+      if (activeSubs.length === 0) {
+        document.getElementById('no-active-msg').style.display = "block";
+      } else {
+        document.getElementById('no-active-msg').style.display = "none";
+        activeSubs.forEach(sub => {
+          activeGrid.appendChild(createSubCard(sub, true));
+        });
       }
 
-      modal.classList.add('show');
+      // Всі підписки (активні позначені)
+      allSubs.forEach(sub => {
+        const userActive = activeSubs.find(s => s.id === sub.id);
+        allGrid.appendChild(createSubCard(sub, !!userActive));
+      });
+    }
+
+    function createSubCard(sub, isActive) {
+      const card = document.createElement('div');
+      card.className = 'subscription-card' + (isActive ? ' active' : '');
+      card.innerHTML = `
+        <img src="${sub.logo}" alt="${sub.name}" class="subscription-logo">
+        <div class="subscription-name">${sub.name}</div>
+        <div class="subscription-desc">${sub.shortDescription}</div>
+        <div class="subscription-price">${sub.price} <span style="font-size:0.97em;">${sub.currency}</span></div>
+        <div class="subscription-badges">
+          ${sub.details.hd ? '<span class="subscription-badge">HD</span>' : ''}
+          ${sub.details.ultraHd ? '<span class="subscription-badge">Ultra HD</span>' : ''}
+          ${sub.details.multiDevice ? '<span class="subscription-badge">Кілька пристроїв</span>' : ''}
+          ${sub.details.maxDevices ? `<span class="subscription-badge">${sub.details.maxDevices} пристр.</span>` : ''}
+          ${sub.details.autoRenew ? '<span class="subscription-badge">Автопродовження</span>' : ''}
+        </div>
+        <div class="subscription-actions"></div>
+      `;
+      const actions = card.querySelector('.subscription-actions');
+      if (isActive) {
+        actions.innerHTML = `
+          <button class="btn-sub secondary" onclick="openModal('${sub.id}')">Деталі</button>
+          <button class="btn-sub primary" disabled>Активна</button>
+          <button class="btn-sub" onclick="alert('Відмова від підписки буде реалізована в особистому кабінеті :)')">Відмінити</button>
+        `;
+      } else {
+        actions.innerHTML = `
+          <button class="btn-sub primary" onclick="alert('Перехід на сторінку оплати буде реалізовано!')">Підключити</button>
+          <button class="btn-sub secondary" onclick="openModal('${sub.id}')">Деталі</button>
+        `;
+      }
+      return card;
+    }
+
+    function openModal(subId) {
+      const sub = allSubs.find(s => s.id === subId);
+      if (!sub) return;
+      document.getElementById('modalLogo').src = sub.logo;
+      document.getElementById('modalLogo').alt = sub.name;
+      document.getElementById('modalTitle').textContent = sub.name;
+      document.getElementById('modalDesc').textContent = sub.fullDescription;
+
+      let details = [];
+      if (sub.details.hd) details.push('Доступне HD-якість');
+      if (sub.details.ultraHd) details.push('Ultra HD для преміуму');
+      if (sub.details.multiDevice) details.push('Можна використовувати на декількох пристроях');
+      if (sub.details.maxDevices) details.push(`Максимум пристроїв: ${sub.details.maxDevices}`);
+      if (sub.details.autoRenew) details.push('Автоматичне продовження підписки');
+
+      document.getElementById('modalDetails').innerHTML = details.map(d => `<li>${d}</li>`).join('');
+
+      let modalFooter = '';
+      // Чи активна для користувача
+      const isActive = !!userSubscriptions.find(u => u.id === subId && u.active && new Date(u.expiry) > new Date());
+      if (isActive) {
+        modalFooter += `<button class="btn-sub" onclick="alert('Функція паузи підписки буде реалізована :)')">Поставити на паузу</button>`;
+        modalFooter += `<button class="btn-sub" onclick="alert('Функція зміни тарифу буде доступна у майбутньому!')">Змінити тариф</button>`;
+      } else {
+        modalFooter += `<button class="btn-sub primary" onclick="alert('Перехід на оплату буде реалізовано!')">Підключити</button>`;
+      }
+      modalFooter += `<button class="btn-sub secondary" onclick="closeModal()">Закрити</button>`;
+      document.getElementById('modalFooter').innerHTML = modalFooter;
+
+      document.getElementById('modal-bg').classList.add('active');
     }
 
     function closeModal() {
-      document.getElementById('modal').classList.remove('show');
+      document.getElementById('modal-bg').classList.remove('active');
     }
-
-    function cancelSubscription() {
-      alert('Підписку успішно скасовано!');
-      closeModal();
-    }
-
-    function saveCard() {
-      alert('Нова картка збережена!');
-      closeModal();
-    }
-
-    function viewDetails(subscriptionName) {
-      alert('Деталі підписки: ' + subscriptionName);
-    }
+    document.getElementById('modal-bg').addEventListener('click', function(e){
+      if (e.target === this) closeModal();
+    });
   </script>
 </body>
 </html>

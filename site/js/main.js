@@ -76,7 +76,7 @@ function afterFooterLoaded() {
 document.addEventListener('DOMContentLoaded', () => {
   loadPartial('header', 'partials/header.html');
   loadPartial('footer', 'partials/footer.html');
-  createSimpleCarousel('subscriptions-carousel', 'data/subscriptions.json', 6);
+  createSimpleCarousel('subscriptions-carousel', 'data/subscriptions_index.json', 6);
   createSimpleCarousel('reviews-carousel', 'data/reviews.json', 6);
 });
 
