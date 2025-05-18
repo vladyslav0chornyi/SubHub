@@ -5,161 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Техпідтримка - Ваш Сервіс</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #2c2c2c, #3e3e3e);
-      margin: 0;
-      padding: 0;
-      color: #e4e4e4;
-    }
-
-    h2 {
-      text-align: center;
-      color: #f1c40f;
-      margin-bottom: 20px;
-    }
-
-    .faq-container {
-      margin: 20px auto;
-      max-width: 800px;
-      padding: 20px;
-      border-radius: 10px;
-      background: #464646;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .faq-category {
-      margin-bottom: 30px;
-    }
-
-    .faq-category h3 {
-      background: #f1c40f;
-      color: #2c2c2c;
-      padding: 10px 15px;
-      border-radius: 5px;
-      font-size: 1.2rem;
-    }
-
-    .faq-item {
-      margin: 10px 0;
-      border-radius: 5px;
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.3s;
-    }
-
-    .faq-item:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    }
-
-    .faq-question {
-      background: #3e3e3e;
-      color: #e4e4e4;
-      padding: 12px 15px;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .faq-question:hover {
-      background: #525252;
-      color: #f1c40f;
-    }
-
-    .faq-question.active {
-      background: #f1c40f;
-      color: #2c2c2c;
-    }
-
-    .faq-answer {
-      padding: 15px;
-      background: #3e3e3e;
-      border-top: 1px solid #555;
-      display: none;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #e4e4e4;
-    }
-
-    .faq-answer p {
-      margin: 0;
-    }
-
-    .faq-arrow {
-      width: 10px;
-      height: 10px;
-      border-style: solid;
-      border-width: 2px 2px 0 0;
-      transform: rotate(45deg);
-      transition: transform 0.3s;
-    }
-
-    .faq-question.active .faq-arrow {
-      transform: rotate(-135deg);
-    }
-
-    header {
-      background: #2c2c2c;
-      padding: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    }
-
-    header h1 {
-      color: #f1c40f;
-      text-align: center;
-      margin: 0;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-
-    nav a {
-      color: #e4e4e4;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #f1c40f;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #2c2c2c;
-      color: #e4e4e4;
-    }
-
-    footer p {
-      margin: 0;
-      font-size: 0.9rem;
-    }
-  </style>
+  <link rel="stylesheet" href="css/support.css">
 </head>
 <body>
-  <!-- Шапка -->
-  <header class="header">
-    <h1>Ваш Сервіс</h1>
-    <nav>
-      <a href="index.html">Головна</a>
-      <a href="subscriptions.html">Підписки</a>
-      <a href="faq.html">Питання</a>
-      <a href="transactions.html">Транзакції</a>
-      <a href="support.html" class="active">Техпідтримка</a>
-      <a href="feedback.html">Відгуки</a>
-      <a href="contacts.html">Контакти</a>
-    </nav>
-  </header>
+  <!-- Динамічна шапка -->
+  <div id="header"></div>
 
   <!-- Головний блок -->
   <main class="main">
@@ -237,28 +87,29 @@
     </div>
   </main>
 
-  <!-- Футер -->
-  <footer class="footer">
-    <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
-  </footer>
+  <!-- Динамічний футер -->
+  <div id="footer"></div>
 
+  <script src="js/main.js"></script>
   <script>
     // Логіка для акордеону
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', () => {
-        const isOpen = question.classList.contains('active');
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+          const isOpen = question.classList.contains('active');
 
-        // Закриваємо всі відкриті відповіді
-        document.querySelectorAll('.faq-question.active').forEach(openQuestion => {
-          openQuestion.classList.remove('active');
-          openQuestion.nextElementSibling.style.display = 'none';
+          // Закриваємо всі відкриті відповіді
+          document.querySelectorAll('.faq-question.active').forEach(openQuestion => {
+            openQuestion.classList.remove('active');
+            openQuestion.nextElementSibling.style.display = 'none';
+          });
+
+          // Відкриваємо/закриваємо поточну відповідь
+          if (!isOpen) {
+            question.classList.add('active');
+            question.nextElementSibling.style.display = 'block';
+          }
         });
-
-        // Відкриваємо/закриваємо поточну відповідь
-        if (!isOpen) {
-          question.classList.add('active');
-          question.nextElementSibling.style.display = 'block';
-        }
       });
     });
   </script>

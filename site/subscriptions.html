@@ -5,179 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Підписки - Ваш Сервіс</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #2c2c2c, #3e3e3e);
-      margin: 0;
-      padding: 0;
-      color: #e4e4e4;
-    }
-
-    header, footer {
-      background: #2c2c2c;
-      color: #e4e4e4;
-      padding: 15px;
-    }
-
-    header h1, footer p {
-      text-align: center;
-      margin: 0;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-
-    nav a {
-      color: #e4e4e4;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #f1c40f;
-    }
-
-    .subscriptions-container {
-      margin: 20px auto;
-      max-width: 800px;
-      padding: 20px;
-      border-radius: 10px;
-      background: #464646;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    h2 {
-      text-align: center;
-      color: #f1c40f;
-      margin-bottom: 20px;
-    }
-
-    .subscription-item {
-      padding: 15px;
-      border-radius: 5px;
-      background: #3e3e3e;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .subscription-item.active {
-      border-left: 5px solid #28a745;
-    }
-
-    .subscription-item.inactive {
-      border-left: 5px solid #dc3545;
-    }
-
-    .subscription-item h3, .payment-info h3 {
-      margin: 0;
-      color: #f1c40f;
-    }
-
-    .subscription-item p, .payment-info p {
-      margin: 10px 0;
-      font-size: 1rem;
-      color: #e4e4e4;
-    }
-
-    .actions button {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      background: #f1c40f;
-      color: #2c2c2c;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .actions button:hover {
-      background: #e2b607;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .modal.show {
-      display: flex;
-      opacity: 1;
-    }
-
-    .modal-content {
-      background: #3e3e3e;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .modal-content h3 {
-      color: #f1c40f;
-      margin-bottom: 15px;
-    }
-
-    .modal-content p {
-      color: #e4e4e4;
-      margin-bottom: 20px;
-    }
-
-    .modal-content input {
-      width: 90%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      border: 1px solid #555;
-      background: #464646;
-      color: #e4e4e4;
-    }
-
-    .modal-content button {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      background: #f1c40f;
-      color: #2c2c2c;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-      margin: 0 5px;
-    }
-
-    .modal-content button:hover {
-      background: #e2b607;
-    }
-  </style>
+  <link rel="stylesheet" href="css/subscriptions.css">
 </head>
 <body>
-  <header class="header">
-    <h1>Ваш Сервіс</h1>
-    <nav>
-      <a href="index.html">Головна</a>
-      <a href="subscriptions.html" class="active">Підписки</a>
-      <a href="faq.html">Питання</a>
-      <a href="transactions.html">Транзакції</a>
-      <a href="support.html">Техпідтримка</a>
-      <a href="feedback.html">Відгуки</a>
-      <a href="contacts.html">Контакти</a>
-    </nav>
-  </header>
+  <!-- Динамічна шапка -->
+  <div id="header"></div>
 
   <main class="main">
     <div class="subscriptions-container">
@@ -217,10 +49,10 @@
     </div>
   </div>
 
-  <footer class="footer">
-    <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
-  </footer>
+  <!-- Динамічний футер -->
+  <div id="footer"></div>
 
+  <script src="js/main.js"></script>
   <script>
     function openModal(type) {
       const modal = document.getElementById('modal');

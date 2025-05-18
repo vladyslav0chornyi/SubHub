@@ -44,6 +44,19 @@ function afterHeaderLoaded() {
     });
   }
 
+  // Динамічна підсвітка активної сторінки в меню
+  const navLinks = document.querySelectorAll('.nav-btn');
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  navLinks.forEach(link => {
+    const linkPage = link.getAttribute('href');
+    if (
+      linkPage === currentPage ||
+      (currentPage === '' && linkPage === 'index.html')
+    ) {
+      link.classList.add('active');
+    }
+  });
+
   // Єдина кнопка авторизації/реєстрації
   const mainAuthBtn = document.querySelector('.btn-primary');
   if (mainAuthBtn) {
