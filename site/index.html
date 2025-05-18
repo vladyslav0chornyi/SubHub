@@ -3,369 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ваш Сервіс</title>
+  <meta name="description" content="Керуйте підписками зручно. Автоматичне списання коштів, підтримка LiqPay, багатомовність та особистий кабінет.">
+  <title>Ваш Сервіс — Керуйте підписками легко</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #e4e4e4;
-      background: #2c2c2c;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #1f1f1f;
-      border-bottom: 2px solid #f1c40f;
-      padding: 15px 20px;
-      z-index: 1000;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      max-height: 50px;
-      margin-right: 10px;
-    }
-
-    nav {
-      display: flex;
-    }
-
-    nav a {
-      color: #e4e4e4;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #f1c40f;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 100px 20px 40px;
-      background: linear-gradient(135deg, #3e3e3e, #464646);
-      color: #f1c40f;
-      border-bottom: 3px solid #f1c40f;
-    }
-
-    .hero h2 {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #2c2c2c;
-      background: #f1c40f;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .btn-primary:hover {
-      background: #e0b600;
-    }
-
-    section {
-      margin: 40px 0;
-      padding: 20px;
-      border-radius: 10px;
-      background: #3e3e3e;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    section h2 {
-      text-align: center;
-      color: #f1c40f;
-      margin-bottom: 20px;
-    }
-
-    .subscriptions-slider, .reviews-slider {
-      overflow: hidden;
-      position: relative;
-      margin-bottom: 20px;
-    }
-
-    .subscriptions-track, .reviews-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .subscription-card, .review-card {
-      background: #2c2c2c;
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      min-width: 250px;
-      margin: 0 10px;
-      color: #e4e4e4;
-    }
-
-    .subscription-card img, .review-card img {
-      max-width: 100px;
-      margin-bottom: 15px;
-    }
-
-    .subscription-card h3, .review-card h3 {
-      font-size: 1.3rem;
-      color: #f1c40f;
-      margin-bottom: 10px;
-    }
-
-    .subscription-card p, .review-card p {
-      margin-bottom: 10px;
-      font-size: 0.95rem;
-    }
-
-    .instruction {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .instruction video {
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .instruction-text {
-      flex: 1;
-      text-align: left;
-      background: #2c2c2c;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .instruction-text h3 {
-      font-size: 1.8rem;
-      color: #f1c40f;
-      margin-bottom: 10px;
-    }
-
-    .instruction-text ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .instruction-text ul li {
-      margin-bottom: 10px;
-    }
-
-    .instruction-text a {
-      color: #f1c40f;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .instruction-text a:hover {
-      text-decoration: underline;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background: #1f1f1f;
-      border-top: 2px solid #f1c40f;
-    }
-
-    .footer a {
-      color: #f1c40f;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    .footer a:hover {
-      color: #e0b600;
-    }
-  </style>
 </head>
 <body>
   <!-- Шапка -->
-  <header>
-    <div class="logo">
-      <img src="site/img/logo.png" alt="Ваш Сервіс">
-      <h1>Ваш Сервіс</h1>
-    </div>
-    <nav>
-      <a href="index.html" class="active">Головна</a>
-      <a href="subscriptions.html">Підписки</a>
-      <a href="faq.html">Питання</a>
-      <a href="transactions.html">Транзакції</a>
-      <a href="support.html">Техпідтримка</a>
-      <a href="feedback.html">Відгуки</a>
-      <a href="contacts.html">Контакти</a>
-    </nav>
-  </header>
+  <div id="header"></div>
 
-  <!-- Головний блок -->
-  <main>
-    <section class="hero">
-      <h2>Керуйте своїми підписками зручно!</h2>
-      <p>Найкраще рішення для економії часу та грошей. Контролюйте всі сервіси в одному місці.</p>
-      <a href="subscriptions.html" class="btn-primary">Розпочати</a>
+  <main class="main" id="main-content" tabindex="-1">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h2 id="hero-title">Керуйте своїми підписками зручно!</h2>
+        <p>Автоматичне списання коштів через LiqPay. Контролюйте всі сервіси в одному місці.</p>
+        <a href="subscriptions.html" class="btn btn-primary">Розпочати</a>
+      </div>
     </section>
 
-    <!-- Популярні підписки -->
-    <section>
-      <h2>Популярні підписки</h2>
-      <div class="subscriptions-slider">
-        <div class="subscriptions-track">
-          <div class="subscription-card">
-            <img src="site/img/netflix-logo.png" alt="Netflix">
-            <h3>Netflix</h3>
-            <p>Дивіться улюблені фільми та серіали.</p>
-          </div>
-          <div class="subscription-card">
-            <img src="site/img/spotify-logo.png" alt="Spotify">
-            <h3>Spotify</h3>
-            <p>Слухайте музику без обмежень.</p>
-          </div>
-          <div class="subscription-card">
-            <img src="site/img/megogo-logo.png" alt="MEGOGO">
-            <h3>MEGOGO</h3>
-            <p>Фільми, серіали та ТВ у HD-якості.</p>
-          </div>
-          <div class="subscription-card">
-            <img src="site/img/svit-tv-logo.png" alt="СвіТ ТВ">
-            <h3>СвіТ ТВ</h3>
-            <p>Дивіться українське та світове телебачення.</p>
-          </div>
-          <div class="subscription-card">
-            <img src="site/img/grok-logo.png" alt="Grok">
-            <h3>Grok</h3>
-            <p>Онлайн-курси для вашого розвитку.</p>
-          </div>
-          <div class="subscription-card">
-            <img src="site/img/prime-video-logo.png" alt="Prime Video">
-            <h3>Prime Video</h3>
-            <p>Фільми та серіали від Amazon.</p>
-          </div>
+        <!-- Популярні підписки -->
+    <section class="popular-subscriptions" aria-labelledby="subscriptions-title">
+      <div class="container">
+        <h2 id="subscriptions-title">Популярні підписки</h2>
+        <div class="carousel" id="subscriptions-carousel" aria-label="Карусель підписок">
+          <div class="carousel-track"></div>
         </div>
       </div>
     </section>
 
     <!-- Інструкція -->
-    <section class="instruction">
-      <video controls>
-        <source src="videos/instruction.mp4" type="video/mp4">
-        Ваш браузер не підтримує відео.
-      </video>
-      <div class="instruction-text">
-        <h3>Як користуватися сервісом?</h3>
-        <ul>
-          <li>1. Зареєструйтесь або увійдіть у свій акаунт.</li>
-          <li>2. Оберіть потрібну підписку.</li>
-          <li>3. Оплатіть у зручний спосіб.</li>
-          <li>4. Насолоджуйтесь контентом!</li>
-        </ul>
-        <a href="help.html">Дізнатися більше</a>
+    <section class="instruction" aria-labelledby="instruction-title">
+      <div class="container instruction__inner">
+        <video controls class="instruction__video" aria-label="Відеоінструкція">
+          <source src="videos/instruction.mp4" type="video/mp4">
+          Ваш браузер не підтримує відео.
+        </video>
+        <div class="instruction-text">
+          <h3 id="instruction-title">Як користуватися сервісом?</h3>
+          <ul>
+            <li>1. Зареєструйтесь або увійдіть у свій акаунт.</li>
+            <li>2. Оберіть потрібну підписку.</li>
+            <li>3. Оплатіть через LiqPay.</li>
+            <li>4. Насолоджуйтесь контентом! Автоматичне списання коштів.</li>
+          </ul>
+          <a href="help.html" class="btn btn-link">Дізнатися більше</a>
+        </div>
       </div>
     </section>
 
-    <!-- Відгуки -->
-    <section>
-      <h2>Відгуки наших клієнтів</h2>
-      <div class="reviews-slider">
-        <div class="reviews-track">
-          <div class="review-card">
-            <h3>Оксана К.</h3>
-            <p>Сервіс дуже зручний! Легко слідкувати за всіма підписками.</p>
-          </div>
-          <div class="review-card">
-            <h3>Іван П.</h3>
-            <p>Класний інтерфейс та швидка підтримка. Рекомендую!</p>
-          </div>
-          <div class="review-card">
-            <h3>Марія С.</h3>
-            <p>Економія часу та грошей. Дякую за чудовий сервіс!</p>
-          </div>
-          <div class="review-card">
-            <h3>Дмитро Л.</h3>
-            <p>Скористався сервісом для оптимізації підписок. Дуже задоволений!</p>
-          </div>
+       <!-- Відгуки -->
+    <section class="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <h2 id="reviews-title">Відгуки наших клієнтів</h2>
+        <div class="carousel" id="reviews-carousel" aria-label="Карусель відгуків">
+          <div class="carousel-track"></div>
         </div>
       </div>
     </section>
   </main>
 
   <!-- Футер -->
-  <footer class="footer">
-    <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
-    <a href="contacts.html">Зв’язатися з нами</a>
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2025 Ваш Сервіс. Всі права захищено.</p>
+      <a href="contacts.html">Зв’язатися з нами</a>
+      <br>
+      <small>Виконано згідно GDPR. Ваші дані під захистом.</small>
+    </div>
   </footer>
 
-  <script>
-    // Нескінченна карусель для підписок
-    const subscriptionsTrack = document.querySelector('.subscriptions-track');
-    const subscriptionsCards = document.querySelectorAll('.subscription-card');
-    const subscriptionsCardWidth = subscriptionsCards[0].offsetWidth + 20;
-    let subscriptionsPosition = 0;
-
-    function moveSubscriptionsCarousel() {
-      subscriptionsPosition -= subscriptionsCardWidth;
-      if (Math.abs(subscriptionsPosition) >= subscriptionsTrack.scrollWidth / 2) {
-        subscriptionsPosition = 0;
-      }
-      subscriptionsTrack.style.transform = `translateX(${subscriptionsPosition}px)`;
-    }
-
-    subscriptionsCards.forEach(card => {
-      const clone = card.cloneNode(true);
-      subscriptionsTrack.appendChild(clone);
-    });
-
-    setInterval(moveSubscriptionsCarousel, 3000);
-
-    // Нескінченна карусель для відгуків
-    const reviewsTrack = document.querySelector('.reviews-track');
-    const reviewsCards = document.querySelectorAll('.review-card');
-    const reviewsCardWidth = reviewsCards[0].offsetWidth + 20;
-    let reviewsPosition = 0;
-
-    function moveReviewsCarousel() {
-      reviewsPosition -= reviewsCardWidth;
-      if (Math.abs(reviewsPosition) >= reviewsTrack.scrollWidth / 2) {
-        reviewsPosition = 0;
-      }
-      reviewsTrack.style.transform = `translateX(${reviewsPosition}px)`;
-    }
-
-    reviewsCards.forEach(card => {
-      const clone = card.cloneNode(true);
-      reviewsTrack.appendChild(clone);
-    });
-
-    setInterval(moveReviewsCarousel, 4000);
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>

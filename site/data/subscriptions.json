@@ -1,0 +1,157 @@
+[
+  {
+    "title": "Netflix",
+    "img": "site/img/netflix-logo.png",
+    "desc": "Дивіться улюблені фільми та серіали у високій якості."
+  },
+  {
+    "title": "Spotify",
+    "img": "site/img/spotify-logo.png",
+    "desc": "Слухайте музику без реклами та перерв."
+  },
+  {
+    "title": "MEGOGO",
+    "img": "site/img/megogo-logo.png",
+    "desc": "Фільми, серіали та телебачення для всієї родини."
+  },
+  {
+    "title": "СвіТ ТВ",
+    "img": "site/img/svit-tv-logo.png",
+    "desc": "Українське і світове телебачення онлайн."
+  },
+  {
+    "title": "Grok",
+    "img": "site/img/grok-logo.png",
+    "desc": "Онлайн-курси та освітній контент для розвитку."
+  },
+  {
+    "title": "Prime Video",
+    "img": "site/img/prime-video-logo.png",
+    "desc": "Фільми та серіали від Amazon для всієї сім’ї."
+  },
+  {
+    "title": "Apple TV+",
+    "img": "site/img/apple-tv-logo.png",
+    "desc": "Оригінальні фільми та серіали від Apple."
+  },
+  {
+    "title": "YouTube Premium",
+    "img": "site/img/youtube-logo.png",
+    "desc": "Відео без реклами, музика та оригінальний контент."
+  },
+  {
+    "title": "Adobe Creative Cloud",
+    "img": "site/img/adobe-logo.png",
+    "desc": "Професійний софт для дизайнерів та фотографів."
+  },
+  {
+    "title": "Microsoft 365",
+    "img": "site/img/microsoft-logo.png",
+    "desc": "Пакет хмарних програм для роботи та навчання."
+  },
+  {
+    "title": "HBO Max",
+    "img": "site/img/hbo-logo.png",
+    "desc": "Нові фільми, серіали та ексклюзивний контент."
+  },
+  {
+    "title": "Deezer",
+    "img": "site/img/deezer-logo.png",
+    "desc": "Мільйони пісень та персоналізовані рекомендації."
+  },
+  {
+    "title": "Google One",
+    "img": "site/img/google-one-logo.png",
+    "desc": "Додатковий простір для файлів у хмарі Google."
+  },
+  {
+    "title": "Coursera",
+    "img": "site/img/coursera-logo.png",
+    "desc": "Онлайн-освіта від провідних університетів світу."
+  },
+  {
+    "title": "Duolingo",
+    "img": "site/img/duolingo-logo.png",
+    "desc": "Вивчайте мови у зручному інтерактивному форматі."
+  },
+  {
+    "title": "Dropbox",
+    "img": "site/img/dropbox-logo.png",
+    "desc": "Зберігайте та діліться файлами у хмарі."
+  },
+  {
+    "title": "Disney+",
+    "img": "site/img/disney-logo.png",
+    "desc": "Фільми та мультфільми для всієї родини."
+  },
+  {
+    "title": "Amazon Music",
+    "img": "site/img/amazon-music-logo.png",
+    "desc": "Доступ до мільйонів треків і плейлистів."
+  },
+  {
+    "title": "Headspace",
+    "img": "site/img/headspace-logo.png",
+    "desc": "Медитації та вправи для гармонійного життя."
+  },
+  {
+    "title": "Helium 10",
+    "img": "site/img/helium10-logo.png",
+    "desc": "Інструменти для Amazon-продавців та аналітики."
+  },
+  {
+    "title": "Waze Premium",
+    "img": "site/img/waze-logo.png",
+    "desc": "Розширені можливості навігації та трафіку."
+  },
+  {
+    "title": "Grammarly",
+    "img": "site/img/grammarly-logo.png",
+    "desc": "Перевірка правопису, стилю та граматики текстів."
+  },
+  {
+    "title": "Lingualeo",
+    "img": "site/img/lingualeo-logo.png",
+    "desc": "Ігрове вивчення англійської мови."
+  },
+  {
+    "title": "Notion",
+    "img": "site/img/notion-logo.png",
+    "desc": "Організація заміток, проектів і командної роботи."
+  },
+  {
+    "title": "NordVPN",
+    "img": "site/img/nordvpn-logo.png",
+    "desc": "Захистіть свою приватність в інтернеті."
+  },
+  {
+    "title": "Figma",
+    "img": "site/img/figma-logo.png",
+    "desc": "Дизайн та спільна робота в реальному часі."
+  },
+  {
+    "title": "Shazam",
+    "img": "site/img/shazam-logo.png",
+    "desc": "Визначайте музику за кілька секунд."
+  },
+  {
+    "title": "Skillshare",
+    "img": "site/img/skillshare-logo.png",
+    "desc": "Курси з креативу та саморозвитку."
+  },
+  {
+    "title": "Amediateka",
+    "img": "site/img/amediateka-logo.png",
+    "desc": "Кращі серіали світу та ексклюзивний контент."
+  },
+  {
+    "title": "Apple Music",
+    "img": "site/img/apple-music-logo.png",
+    "desc": "Музика без реклами та персональні рекомендації."
+  },
+  {
+    "title": "Google Play Pass",
+    "img": "site/img/play-pass-logo.png",
+    "desc": "Доступ до сотень ігор та додатків без реклами."
+  }
+]
