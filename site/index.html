@@ -13,59 +13,77 @@
   <div id="header"></div>
 
   <main class="main" id="main-content" tabindex="-1">
-    <!-- Hero -->
+
+    <!-- HERO WOW -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
-        <h2 id="hero-title">Керуйте своїми підписками зручно!</h2>
-        <p>Автоматичне списання коштів через LiqPay. Контролюйте всі сервіси в одному місці.</p>
-        <a href="subscriptions.html" class="btn btn-primary">Розпочати</a>
-      </div>
-    </section>
-
-        <!-- Популярні підписки -->
-    <section class="popular-subscriptions" id="popular-subscriptions" aria-labelledby="subscriptions-title">
-      <div class="container">
-        <h2 id="subscriptions-title">Популярні підписки</h2>
-        <div class="carousel" id="subscriptions-carousel" aria-label="Карусель підписок">
-          <div class="carousel-track"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Інструкція -->
-    <section class="instruction" id="instruction" aria-labelledby="instruction-title">
-      <div class="container instruction__inner">
-        <video controls class="instruction__video" aria-label="Відеоінструкція">
-          <source src="videos/instruction.mp4" type="video/mp4">
-          Ваш браузер не підтримує відео.
-        </video>
-        <div class="instruction-text">
-          <h3 id="instruction-title">Як користуватися сервісом?</h3>
-          <ul>
-            <li>1. Зареєструйтесь або увійдіть у свій акаунт.</li>
-            <li>2. Оберіть потрібну підписку.</li>
-            <li>3. Оплатіть через LiqPay.</li>
-            <li>4. Насолоджуйтесь контентом! Автоматичне списання коштів.</li>
+        <div class="hero-info">
+          <h1 class="hero-title" id="hero-title">Керуйте своїми підписками зручно!</h1>
+          <div class="hero-about">
+            <strong>WOW Subscriptions</strong> — це сервіс, що допомагає вам контролювати всі онлайн-підписки в одному місці. Жодна підписка не спише гроші зненацька!<br>
+            <span style="color:#ffe066;font-weight:600;">Автоматизація, безпека, економія, WOW-ефект.</span>
+          </div>
+          <ul class="hero-features">
+            <li>🔔 <b>Автонагадування</b> про оплату — жодних несподіваних списань</li>
+            <li>💳 <b>Зручна оплата</b> (LiqPay, ApplePay, GooglePay) у 2 кліки</li>
+            <li>🔒 <b>Безпека</b> та прозорість — ваші дані під захистом</li>
+            <li>🌍 <b>Багатомовність</b>: українська, англійська, польська</li>
+            <li>🚀 <b>Топові сервіси</b>: Netflix, Spotify, ChatGPT, MEGOGO, YouTube Premium</li>
           </ul>
-          <a href="help.html" class="btn btn-link">Дізнатися більше</a>
+          <div class="hero-cta">
+            <a href="subscriptions.html" class="btn btn-primary">Обрати підписку</a>
+            <a href="#instruction" class="btn btn-link">Дізнатись більше</a>
+          </div>
+        </div>
+        <div class="hero-images">
+          <img src="img/hero-main.jpg" alt="Ілюстрація: керування підписками" class="hero-img" />
+          <img src="img/hero-dashboard.png" alt="Скріншот сервісу" class="hero-img dashboard-img" />
         </div>
       </div>
     </section>
 
-       <!-- Відгуки -->
-    <section class="reviews" aria-labelledby="reviews-title">
+    <!-- POPULAR SUBSCRIPTIONS -->
+    <section class="top-subscriptions-section">
       <div class="container">
-        <h2 id="reviews-title">Відгуки наших клієнтів</h2>
-        <div class="carousel" id="reviews-carousel" aria-label="Карусель відгуків">
-          <div class="carousel-track"></div>
+        <h2 class="top-subscriptions-title">Популярні підписки</h2>
+        <div id="top-subscriptions" class="top-subscriptions-grid"></div>
+      </div>
+    </section>
+
+    <!-- INSTRUCTION WOW -->
+    <section class="instruction-section" id="instruction" aria-labelledby="instruction-title">
+      <div class="instruction__inner">
+        <div class="instruction__video-block">
+          <video controls poster="img/instruction-poster.jpg" class="instruction__video" aria-label="Відеоінструкція">
+            <source src="videos/instruction.mp4" type="video/mp4">
+            Ваш браузер не підтримує відео.
+          </video>
+          <div class="instruction-caption">Дивіться: як за 1 хвилину підключити WOW Subscriptions</div>
         </div>
+        <div class="instruction__steps">
+          <div class="instruction-title" id="instruction-title">Як користуватися сервісом?</div>
+          <ul class="instruction__steps-list">
+            <li><span class="step-icon">📝</span>Зареєструйтесь або увійдіть у свій акаунт</li>
+            <li><span class="step-icon">🔍</span>Оберіть потрібну підписку з каталогу</li>
+            <li><span class="step-icon">💳</span>Оплатіть у 2 кліки через LiqPay/ApplePay</li>
+            <li><span class="step-icon">🎬</span>Користуйтесь сервісом — автоматичне продовження</li>
+            <li><span class="step-icon">🔔</span>Отримуйте нагадування про платежі</li>
+            <li><span class="step-icon">📈</span>Контролюйте витрати та історію в особистому кабінеті</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- REVIEWS -->
+    <section class="reviews-section">
+      <div class="container">
+        <h2 class="reviews-title">Відгуки клієнтів</h2>
+        <div id="reviews-list" class="reviews-grid"></div>
       </div>
     </section>
   </main>
-
-  <!-- Динамічний футер -->
   <div id="footer"></div>
-
   <script src="js/main.js"></script>
 </body>
 </html>
