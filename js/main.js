@@ -4,7 +4,17 @@ function loadPartial(id, file) {
     .then(response => response.text())
     .then(data => {
       const el = document.getElementById(id);
-      if (el) el.innerHTML = data;
+      if (el) {
+        el.innerHTML = data;
+        // Підключення стилів футера автоматично після підвантаження футера
+        if (id === 'footer') {
+          const style = document.createElement('link');
+          style.rel = 'stylesheet';
+          style.href = 'css/footer.css';
+          style.id = 'footer-styles';
+          document.head.appendChild(style);
+        }
+      }
       if (id === 'header') afterHeaderLoaded();
     })
     .catch(error => console.error('Помилка завантаження компонента:', error));

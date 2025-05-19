@@ -6,7 +6,7 @@ section,
 .top-subscriptions-section,
 .reviews-section,
 .instruction-section {
-  min-height: 480px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +15,193 @@ section,
   box-sizing: border-box;
   background: #252849;
   border-bottom: 3px solid #ffe066;
+}
+
+/* ===== WOW FOOTER (full-width, premium style) ===== */
+.xfooter {
+  position: relative;
+  width: 100vw;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  background: #111215;
+  overflow: hidden;
+  box-shadow: 0 -10px 30px #0006;
+}
+.xfooter__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 60% 10%, #1ed76033 0, #23243c 55%) no-repeat,
+              radial-gradient(ellipse at 10% 80%, #ffe06630 0, #23243c 65%) no-repeat;
+  opacity: 0.95;
+}
+.xfooter__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1760px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 2.4fr 1fr;
+  gap: 48px 42px;
+  align-items: flex-start;
+  padding: 62px 5vw 32px 5vw;
+}
+.xfooter__brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+.xfooter__logo {
+  width: 66px;
+  height: 66px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 1px 18px #1ed76044;
+}
+.xfooter__brand-name {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .01em;
+  margin-top: 4px;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 22px #1ed76055, 0 2px 12px #0008;
+}
+.xfooter__slogan {
+  font-size: 1.06rem;
+  color: #ffe066;
+  opacity: .92;
+  font-weight: 500;
+  text-shadow: 0 2px 8px #ffe06633;
+}
+.xfooter__navs {
+  display: flex;
+  gap: 80px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.xfooter__nav {
+  min-width: 130px;
+}
+.xfooter__nav-title {
+  color: #b3b3b3;
+  font-size: 1.04rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 15px;
+}
+.xfooter__nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.xfooter__nav ul li {
+  margin-bottom: 9px;
+}
+.xfooter__nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.08rem;
+  opacity: 0.89;
+  border-radius: 7px;
+  padding: 3px 7px;
+  transition: color .17s, background .17s, opacity .16s;
+  font-weight: 500;
+}
+.xfooter__nav a:hover, .xfooter__nav a:focus {
+  color: #23243c;
+  background: linear-gradient(90deg, #1ed760 60%, #ffe066 120%);
+  opacity: 1;
+  outline: none;
+}
+.xfooter__socials {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 18px;
+  min-width: 110px;
+  margin-top: 5px;
+}
+.xfooter__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #23243c;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 9px;
+  box-shadow: 0 2px 14px #1ed76022, 0 1px 6px #23243c44;
+  transition: background 0.22s, box-shadow .20s, transform .14s;
+  cursor: pointer;
+}
+.xfooter__social svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+  transition: filter .19s, transform .13s;
+}
+.xfooter__social:hover, .xfooter__social:focus {
+  background: #1ed760;
+  box-shadow: 0 4px 30px #1ed76099;
+  transform: scale(1.18) rotate(-6deg);
+}
+.xfooter__social:hover svg, .xfooter__social:focus svg {
+  filter: brightness(2.1) drop-shadow(0 0 16px #fff);
+  transform: scale(1.12);
+}
+.xfooter__bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 1760px;
+  margin: 0 auto;
+  border-top: 1.5px solid #ffe06633;
+  color: #ffe066cc;
+  font-size: 1.04rem;
+  opacity: 0.95;
+  padding: 23px 5vw 16px 5vw;
+  letter-spacing: 0.01em;
+}
+.xfooter__lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.04rem;
+  color: #fff;
+  opacity: 0.93;
+}
+.xfooter__copy {
+  color: #ffe066dd;
+  font-size: 1.03rem;
+  font-weight: 400;
+}
+@media (max-width: 1200px) {
+  .xfooter__container { grid-template-columns: 1fr 1.8fr; gap: 32px 22px; }
+  .xfooter__socials { align-items: flex-start; }
+}
+@media (max-width: 900px) {
+  .xfooter__container { grid-template-columns: 1fr; gap: 30px 0; padding: 48px 4vw 28px 4vw;}
+  .xfooter__brand { flex-direction: row; gap: 14px;}
+  .xfooter__navs { gap: 32px; }
+  .xfooter__socials { flex-direction: row; gap: 14px; margin-top: 12px;}
+}
+@media (max-width: 600px) {
+  .xfooter__container, .xfooter__bottom {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .xfooter__container { padding-top: 28px; padding-bottom: 10px;}
+  .xfooter__brand-name { font-size: 1.23rem;}
+  .xfooter__slogan { font-size: 0.99rem;}
+  .xfooter__bottom { flex-direction: column; align-items: flex-start; gap: 7px; padding-top: 12px; }
 }
 
 /* ==== HERO WOW-ВІЗИТКА ==== */
