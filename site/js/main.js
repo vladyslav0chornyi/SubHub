@@ -62,7 +62,8 @@ function renderRandomReviews() {
   fetch('data/reviews.json')
     .then(res => res.json())
     .then(reviews => {
-      const shuffled = reviews.sort(() => Math.random() - 0.5).slice(0, 6);
+      // Перемішати масив
+      const shuffled = reviews.sort(() => Math.random() - 0.5).slice(0, 8);
       container.innerHTML = '';
       let lang = localStorage.getItem('lang');
       if (!lang) {
