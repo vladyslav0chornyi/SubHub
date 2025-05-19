@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти - Ваш Сервіс</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contacts.css">
+</head>
+<body>
+  <!-- Динамічна шапка -->
+  <div id="header"></div>
+
+  <!-- Головний блок -->
+  <main class="main">
+    <div class="contacts-container">
+      <h2>Контакти</h2>
+
+      <!-- Інформація про контакти -->
+      <div class="contact-info">
+        <h3>Зв'яжіться з нами через email</h3>
+        <ul>
+          <li><a href="mailto:support@example.com">support@example.com</a> — Технічна підтримка</li>
+          <li><a href="mailto:info@example.com">info@example.com</a> — Загальні питання</li>
+          <li><a href="mailto:billing@example.com">billing@example.com</a> — Фінансові питання</li>
+        </ul>
+      </div>
+
+      <!-- Форма для зв'язку -->
+      <div class="contact-form">
+        <h3>Напишіть нам</h3>
+        <form id="contactForm">
+          <label for="name">Ім'я (необов'язково)</label>
+          <input type="text" id="name" placeholder="Ваше ім'я">
+
+          <label for="email">Email (необов'язково)</label>
+          <input type="email" id="email" placeholder="Ваш email">
+
+          <label for="message">Повідомлення</label>
+          <textarea id="message" required placeholder="Напишіть ваше повідомлення тут..."></textarea>
+
+          <button type="submit">Надіслати</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Динамічний футер -->
+  <div id="footer"></div>
+
+  <script src="js/lang.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Валідація форми
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      if (email && !/\S+@\S+\.\S+/.test(email)) {
+        alert('Будь ласка, введіть коректний email.');
+        return;
+      }
+
+      if (!message.trim()) {
+        alert('Поле "Повідомлення" не може бути пустим.');
+        return;
+      }
+
+      alert('Ваше повідомлення успішно надіслано!');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

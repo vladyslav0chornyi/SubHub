@@ -1,0 +1,236 @@
+/* Вирівнювання і сучасний вигляд для сторінки входу/реєстрації */
+
+body {
+  background: linear-gradient(135deg, #2c2c2c, #3e3e3e);
+}
+
+/* Центрування всього контенту по вертикалі і горизонталі */
+.auth-page-wrapper {
+  min-height: calc(100vh - 140px); /* урахування хедера і футера */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+/* Контейнер форми */
+.auth-container {
+  background: #464646;
+  border-radius: 15px;
+  padding: 38px 32px 28px 32px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+/* Заголовок */
+.auth-container h2 {
+  text-align: center;
+  color: #f1c40f;
+  margin-bottom: 24px;
+  letter-spacing: 0.01em;
+}
+
+/* Вкладки */
+.auth-container .tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 6px;
+}
+
+.auth-container .tabs button {
+  background: none;
+  border: none;
+  color: #e4e4e4;
+  font-size: 1.13rem;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 7px 7px 0 0;
+  cursor: pointer;
+  transition: color 0.2s, border-bottom 0.2s, background 0.15s;
+}
+.auth-container .tabs button.active {
+  color: #f1c40f;
+  border-bottom: 2px solid #f1c40f;
+  background: #393939;
+}
+
+/* Форму неактивну ховаємо */
+.auth-form {
+  display: none;
+}
+.auth-form.active {
+  display: block;
+}
+
+/* Група інпуту з підписом */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 15px;
+  gap: 7px;
+}
+
+.input-group label {
+  color: #e4e4e4;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 2px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #555;
+  border-radius: 6px;
+  background: #3e3e3e;
+  color: #e4e4e4;
+  font-size: 1.08rem;
+  outline: none;
+  transition: border 0.18s;
+}
+
+.auth-form input:focus {
+  border: 1.5px solid #f1c40f;
+  background: #414141;
+}
+
+/* Рядок чекбокса і "забули пароль" */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 14px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.98rem;
+  color: #e4e4e4;
+  margin-bottom: 0;
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: #f1c40f;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.forgot-password {
+  text-align: right;
+  margin: 0;
+}
+.forgot-password a {
+  color: #f1c40f;
+  text-decoration: none;
+  font-size: 0.98rem;
+  transition: color 0.2s;
+}
+.forgot-password a:hover {
+  text-decoration: underline;
+  color: #fff700;
+}
+
+/* Кнопка */
+.btn-block {
+  width: 100%;
+  margin-top: 7px;
+  margin-bottom: 4px;
+  font-size: 1.1rem;
+  padding: 12px 0;
+  letter-spacing: 0.02em;
+}
+
+.auth-form .error {
+  color: #ff6060;
+  font-size: 0.93rem;
+  margin-bottom: 10px;
+  text-align: center;
+  min-height: 18px;
+}
+
+/* --- Декоративна лінія АБО --- */
+.auth-or {
+  margin: 18px 0 10px 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.auth-or::before,
+.auth-or::after {
+  content: "";
+  flex: 1 1 0;
+  border-bottom: 1.5px solid #5d5d5d;
+  margin: 0 10px;
+}
+.auth-or span {
+  color: #b6b6b6;
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* --- Соціальні кнопки --- */
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 6px;
+}
+
+.btn-social {
+  background: #363636;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.18s, transform 0.15s;
+  padding: 0;
+}
+.btn-social img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.btn-social.google:hover {
+  background: #fff;
+  box-shadow: 0 2px 12px #e94436b0;
+}
+.btn-social.facebook:hover {
+  background: #1776f2;
+  box-shadow: 0 2px 12px #1776f2b0;
+}
+.btn-social.github:hover {
+  background: #24292f;
+  box-shadow: 0 2px 12px #24292fb4;
+}
+.btn-social:hover {
+  transform: translateY(-2px) scale(1.07);
+}
+
+/* --- Адаптив --- */
+@media (max-width: 600px) {
+  .auth-container {
+    padding: 20px 5vw 18px 5vw;
+    max-width: 96vw;
+  }
+  .auth-or span {font-size: 0.89rem;}
+  .btn-block {font-size: 1rem;}
+  .social-login {gap: 10px;}
+}

@@ -1,0 +1,86 @@
+.details-container {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #464646;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  text-align: center;
+  color: #f1c40f;
+  margin-bottom: 20px;
+}
+
+.subscription-info {
+  margin-bottom: 30px;
+}
+
+.subscription-info h3 {
+  color: #f1c40f;
+  margin-bottom: 10px;
+}
+
+.subscription-info p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #e4e4e4;
+}
+
+.benefits {
+  margin-top: 30px;
+  padding: 15px;
+  border-radius: 5px;
+  background: #3e3e3e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.benefits h3 {
+  color: #f1c40f;
+  margin-bottom: 15px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.benefit-item img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.benefit-item p {
+  margin: 0;
+  font-size: 1rem;
+  color: #e4e4e4;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background: #f1c40f;
+  color: #2c2c2c;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.actions button:hover {
+  background: #e2b607;
+}
+
+@media (max-width: 600px) {
+  .details-container {
+    padding: 8px;
+  }
+}

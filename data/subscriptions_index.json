@@ -1,0 +1,162 @@
+[
+  {
+    "id": "10",
+    "name": "ChatGPT Plus",
+    "logo": "img/subs/chatgpt-plus.png",
+    "shortDescription": "AI, що пише, радить, допомагає, перекладає. GPT-4, швидка відповідь, без черг.",
+    "features": [
+      "Доступ до GPT-4",
+      "Відсутність затримок",
+      "Ідеально для навчання та роботи"
+    ],
+    "wowTag": "AI-революція",
+    "price": 20,
+    "oldPrice": 25,
+    "currency": "USD/міс",
+    "saveText": "–20%"
+  },
+  {
+    "id": "2",
+    "name": "MEGOGO",
+    "logo": "img/subs/megogo.png",
+    "shortDescription": "Кіно, серіали, спорт, українські канали. Аудіокниги, подкасти — все для родини.",
+    "features": [
+      "Премʼєри й новинки",
+      "Дитяча зона",
+      "Аудіокниги та подкасти"
+    ],
+    "wowTag": "Супер-контент",
+    "price": 99,
+    "oldPrice": 129,
+    "currency": "грн/міс",
+    "saveText": "Вигода –30 грн"
+  },
+  {
+    "id": "1",
+    "name": "Netflix",
+    "logo": "img/subs/netflix.png",
+    "shortDescription": "Топові фільми та серіали світу. Оригінали, 4K, багато українського дубляжу.",
+    "features": [
+      "4K Ultra HD",
+      "Премʼєри одночасно зі світом",
+      "Українські субтитри та дубляж"
+    ],
+    "wowTag": "Світовий хіт",
+    "price": 249,
+    "oldPrice": 299,
+    "currency": "грн/міс",
+    "saveText": "–50 грн"
+  },
+  {
+    "id": "3",
+    "name": "Spotify",
+    "logo": "img/subs/spotify.png",
+    "shortDescription": "Мільйони треків, подкасти, плейлисти настрій — без реклами.",
+    "features": [
+      "Офлайн-режим",
+      "Розумні рекомендації",
+      "Сімейна підписка"
+    ],
+    "wowTag": "Музика всюди",
+    "price": 89,
+    "oldPrice": 129,
+    "currency": "грн/міс",
+    "saveText": "–40 грн"
+  },
+  {
+    "id": "4",
+    "name": "YouTube Premium",
+    "logo": "img/subs/youtube-premium.png",
+    "shortDescription": "Відео без реклами, музика у фоні, офлайн-контент. Сімейний доступ.",
+    "features": [
+      "Без реклами всюди",
+      "Фонове прослуховування",
+      "Офлайн-відео"
+    ],
+    "wowTag": "Без реклами",
+    "price": 99,
+    "oldPrice": 129,
+    "currency": "грн/міс",
+    "saveText": "–30 грн"
+  },
+  {
+    "id": "5",
+    "name": "Sweet.TV",
+    "logo": "img/subs/sweet-tv.png",
+    "shortDescription": "HD-канали, кіно, мультики, українське. Прості тарифи, топовий вибір.",
+    "features": [
+      "Багато каналів у HD",
+      "Дитяча зона",
+      "Власні добірки"
+    ],
+    "wowTag": "ТВ та кіно",
+    "price": 89,
+    "oldPrice": 119,
+    "currency": "грн/міс",
+    "saveText": "–30 грн"
+  },
+  {
+    "id": "6",
+    "name": "Monobank+",
+    "logo": "img/subs/monobank-plus.png",
+    "shortDescription": "Кешбек, преміум-сервіс, персональний менеджер. Всі послуги в одному додатку.",
+    "features": [
+      "Преміальна картка",
+      "Страхування та бонуси",
+      "0% на перекази"
+    ],
+    "wowTag": "Фінтех WOW",
+    "price": 150,
+    "oldPrice": 200,
+    "currency": "грн/міс",
+    "saveText": "–50 грн"
+  },
+  {
+    "id": "7",
+    "name": "Apple One",
+    "logo": "img/subs/apple-one.png",
+    "shortDescription": "Музика, ігри, відео, хмара — все в одному пакеті для родини.",
+    "features": [
+      "Apple Music, TV+, Arcade, iCloud",
+      "200 ГБ для фото",
+      "Сімейний доступ"
+    ],
+    "wowTag": "Apple-екосистема",
+    "price": 259,
+    "oldPrice": 299,
+    "currency": "грн/міс",
+    "saveText": "–40 грн"
+  },
+  {
+    "id": "8",
+    "name": "Setanta Sports",
+    "logo": "img/subs/setanta.png",
+    "shortDescription": "Футбол, Формула-1, теніс, NHL — наживо та в запису, на будь-якому пристрої.",
+    "features": [
+      "Трансляції топових матчів",
+      "Архів подій",
+      "Кілька пристроїв"
+    ],
+    "wowTag": "Спорт 24/7",
+    "price": 109,
+    "oldPrice": 149,
+    "currency": "грн/міс",
+    "saveText": "–40 грн"
+  },
+  {
+    "id": "9",
+    "name": "Diia.Signature",
+    "logo": "img/subs/diia-signature.png",
+    "shortDescription": "Підписуй документи, отримуй послуги, бізнес онлайн — 24/7 у смартфоні.",
+    "features": [
+      "Швидкий е-підпис",
+      "Працює на всіх пристроях",
+      "Підтримка PDF та Word"
+    ],
+    "wowTag": "Держава онлайн",
+    "price": 29,
+    "oldPrice": 49,
+    "currency": "грн/міс",
+    "saveText": "–20 грн"
+  }
+]

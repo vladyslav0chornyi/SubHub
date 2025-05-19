@@ -1,0 +1,389 @@
+/* :root містить CSS-змінні для кольорів, розмірів, радіусів і тіней */
+:root {
+  --main-bg: #2c2c2c;              /* Основний фон */
+  --main-fg: #e4e4e4;              /* Основний текст */
+  --accent: #f1c40f;               /* Акцентний колір (жовтий) */
+  --accent-hover: #e1b600;         /* Акцент при наведенні */
+  --card-bg: #232323;              /* Фон карток */
+  --header-bg: #1f1f1f;            /* Фон хедера */
+  --footer-bg: #1f1f1f;            /* Фон футера */
+  --shadow: 0 2px 15px rgba(0,0,0,0.25);    /* Тінь для блоків */
+  --radius: 10px;                  /* Радіус закруглення */
+  --transition: 0.3s;              /* Час анімацій */
+  --container-width: 1200px;       /* Ширина контейнера */
+}
+
+/* ==== GLOBAL ==== */
+/* Універсальна корекція box-sizing для всіх елементів */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;          /* Враховує padding і border у width/height */
+}
+
+/* Базові стилі для сторінки */
+body {
+  font-family: 'Arial', sans-serif;  /* Основний шрифт */
+  margin: 0;                         /* Без відступів по краях */
+  padding: 0;                        /* Без внутрішніх відступів */
+  color: var(--main-fg);             /* Встановлює основний колір тексту */
+  background: var(--main-bg);        /* Встановлює фон */
+}
+
+/* Базові стилі для посилань */
+a {
+  color: var(--accent);              /* Колір посилань */
+  text-decoration: none;             /* Без підкреслення */
+  transition: color var(--transition); /* Плавна зміна кольору при наведенні */
+}
+
+/* Ефект наведення та фокусу для посилань */
+a:hover,
+a:focus {
+  color: var(--accent-hover);        /* Жовтий при наведенні */
+  outline: none;                     /* Без зовнішнього контуру */
+}
+
+/* ==== CONTAINER ==== */
+/* Основний контейнер для контенту */
+.container {
+  max-width: var(--container-width); /* Максимальна ширина */
+  width: 94%;                        /* Відсоткова ширина */
+  margin: 0 auto;                    /* Центрування по горизонталі */
+}
+
+/* ==== HEADER ==== */
+/* Фіксований хедер для всіх сторінок */
+.header {
+  width: 100vw;                      /* На всю ширину екрану */
+  position: fixed;                   /* Фіксована позиція */
+  top: 0; left: 0;                   /* Вгорі сторінки */
+  background: var(--header-bg);      /* Фон */
+  border-bottom: 2px solid var(--accent); /* Лінія знизу */
+  z-index: 1000;                     /* Поверх всього */
+  box-shadow: var(--shadow);         /* Тінь */
+}
+
+/* Внутрішній контейнер хедера */
+.header__inner {
+  max-width: 1920px;                 /* Максимальна ширина */
+  margin: 0 auto;                    /* Центрування */
+  display: flex;                     /* Flex для розташування елементів */
+  align-items: center;               /* Вертикальне вирівнювання */
+  justify-content: space-between;    /* Відступи між блоками */
+  height: 74px;                      /* Висота */
+  padding: 0 2vw;                    /* Горизонтальні відступи */
+}
+
+/* Лого і блок із зображенням */
+.logo {
+  display: flex;                     /* Flex-контейнер */
+  align-items: center;               /* По центру по вертикалі */
+  gap: 10px;                         /* Відступ між елементами */
+}
+
+/* Зображення логотипу */
+.logo img {
+  max-height: 48px;                  /* Максимальна висота */
+  border-radius: 50%;                /* Коло */
+  background: #fff1;                 /* Напівпрозорий фон */
+  padding: 4px;                      /* Відступ */
+  width: auto;                       /* Автоматична ширина */
+  transition: filter 0.3s;           /* Плавна зміна фільтра */
+}
+
+/* Текстове лого */
+.logo__title,
+.logo h1 {
+  font-size: 1.5rem;                 /* Розмір шрифту */
+  font-weight: bold;                 /* Жирний */
+  color: var(--accent);              /* Жовтий */
+  margin: 0;                         /* Без відступу */
+}
+
+/* ==== NAVIGATION ==== */
+/* Навігаційне меню */
+.nav {
+  display: flex;                     /* Flex-контейнер */
+  gap: 18px;                         /* Відстань між пунктами */
+}
+
+/* Кнопки та посилання у навігації */
+.nav-btn,
+.nav a {
+  background: #282828;               /* Темний фон */
+  color: #e4e4e4;                    /* Світлий текст */
+  font-weight: 600;                  /* Напівжирний */
+  border: none;                      /* Без обрамлення */
+  outline: none;                     /* Без зовнішнього контуру */
+  border-radius: 7px;                /* Закруглення */
+  padding: 9px 21px;                 /* Внутрішні відступи */
+  font-size: 1.07rem;                /* Розмір шрифту */
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    transform 0.15s;                 /* Плавні ефекти */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Тінь */
+  position: relative;                /* Відносне позиціонування */
+  cursor: pointer;                   /* Курсор-рука */
+}
+
+/* Активний стан/наведення для навігації */
+.nav-btn.active,
+.nav a.active,
+.nav-btn:hover,
+.nav-btn:focus,
+.nav a:hover,
+.nav a:focus {
+  background: var(--accent);         /* Жовтий фон */
+  color: #212121;                    /* Темний текст */
+  box-shadow: 0 4px 16px rgba(241,196,15,0.10); /* Тінь */
+  transform: translateY(-2px) scale(1.04);       /* Піднімає та збільшує */
+}
+
+/* Активне натискання */
+.nav-btn:active,
+.nav a:active {
+  box-shadow: none;                  /* Без тіні */
+  background: #fff7b3;               /* Світло-жовтий фон */
+}
+
+/* ==== HEADER SIDE ==== */
+/* Додаткові елементи у шапці (наприклад, мова, профіль) */
+.header-side {
+  display: flex;                     /* Flex-контейнер */
+  align-items: center;               /* По центру по вертикалі */
+  gap: 26px;                         /* Відстань між елементами */
+  margin-right: 4vw;                 /* Відступ справа */
+}
+
+/* ==== LANG DROPDOWN ==== */
+/* Блок вибору мови */
+.lang-dropdown {
+  position: relative;                /* Для абсолютного позиціонування списку */
+}
+
+/* Кнопка вибору мови */
+.lang-btn {
+  min-width: 75px;
+  max-width: 75px;
+  width: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 8px 20px 8px 12px;
+  background: #1168e4;               /* Синій фон */
+  color: #fff;                       /* Білий текст */
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  position: relative;
+  gap: 4px;
+}
+
+/* Наведення/активна кнопка мови */
+.lang-btn:hover, .lang-btn.active {
+  background: #1452b7;               /* Темніший синій */
+}
+
+/* Текст вибраної мови */
+.lang-current {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 1 auto;
+  text-align: left;
+  min-width: 0;
+}
+
+/* Стрілка в кнопці мови */
+.arrow {
+  font-size: 12px;
+  margin-left: 2px;
+  pointer-events: none;
+  color: #fff;
+}
+
+/* Список мов */
+.lang-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 5;
+  background: #fff;
+  color: #222;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(20, 50, 100, 0.14);
+  min-width: 130px;
+  margin-top: 8px;
+  padding: 6px 0;
+  list-style: none;
+}
+
+/* Відображення списку мов */
+.lang-list.show {
+  display: block;
+}
+
+/* Пункти списку мов */
+.lang-list li {
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.12s;
+}
+
+/* Активний пункт або при наведенні */
+.lang-list li.active,
+.lang-list li:hover {
+  background: #ecf3fb;               /* Світлий фон */
+  color: #1168e4;                    /* Синій текст */
+}
+
+/* ==== AUTH ==== */
+/* Стилі для блоків входу/реєстрації */
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: 20px;
+}
+
+/* Кнопки різних типів */
+.btn, .btn-primary, .btn-link, .btn-outline, .btn-small {
+  display: inline-block;
+  font-weight: bold;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border var(--transition), box-shadow var(--transition);
+}
+
+/* Звичайна кнопка */
+.btn {
+  background: linear-gradient(90deg, #232323 70%, #444 100%);
+  color: #f1c40f;
+  border: none;
+  border-radius: 7px;
+  padding: 9px 24px;
+  font-weight: bold;
+  font-size: 1.07rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition:
+    background 0.22s,
+    color 0.22s,
+    box-shadow 0.18s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  outline: none;
+  position: relative;
+}
+
+/* Жовта кнопка */
+.btn-primary {
+  background: var(--accent);
+  color: #222;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.07rem;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border var(--transition), box-shadow var(--transition);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* Наведення/фокус кнопки */
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--accent-hover);
+  color: #222;
+}
+
+/* Посилання-кнопка */
+.btn-link {
+  background: none;
+  color: var(--accent);
+  padding: 0;
+  border: none;
+  text-decoration: underline;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+/* Маленька кнопка */
+.btn-small {
+  padding: 7px 14px;
+  font-size: 0.97rem;
+}
+
+/* ==== MAIN ==== */
+/* Відступ під фіксований хедер */
+.main {
+  padding-top: 80px;
+}
+
+/* ==== FOOTER ==== */
+/* Загальний футер для всіх сторінок */
+.footer {
+  background: var(--footer-bg);
+  text-align: center;
+  padding: 26px 0 16px 0;
+  border-top: 2px solid var(--accent);
+  font-size: 1.05rem;
+  margin-top: 40px;
+  color: var(--main-fg);
+}
+.footer a {
+  color: var(--accent);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.footer a:hover {
+  color: var(--accent-hover);
+}
+
+/* ==== ADAPTIVITY ==== */
+/* Адаптивність для основних елементів */
+
+/* На екранах <1500px — ширший header */
+@media (max-width: 1500px) {
+  .header__inner { max-width: 98vw; }
+}
+
+/* На екранах <900px — вертикальний header, ширший container */
+@media (max-width: 900px) {
+  .header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .container {
+    width: 98%;
+  }
+}
+
+/* На мобільних — менший логотип, менший відступ */
+@media (max-width: 600px) {
+  .main {
+    padding-top: 60px;
+  }
+  .header__inner {
+    padding: 8px 0;
+  }
+  .logo img {
+    max-height: 38px;
+  }
+  .container {
+    width: 98%;
+  }
+}

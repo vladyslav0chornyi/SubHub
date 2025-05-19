@@ -1,0 +1,226 @@
+[
+  {
+    "id": "10",
+    "name": "ChatGPT Plus",
+    "shortDescription": "Асистент майбутнього: генерація тексту, коду, зображень і ідей — усе на одному диханні.",
+    "fullDescription": "ChatGPT Plus перетворює рутину на творчість. Забудьте про блокноти і безсонні ночі над складними завданнями: GPT-4 допоможе написати листа, скласти резюме, створити маркетингову стратегію або навіть сценарій для TikTok. Ексклюзивний доступ до DALL-E для генерації картинок, першочерговий доступ до нових можливостей AI. Ваш особистий консультант, вчитель, редактор і навіть друг. Відкрийте справжній потенціал штучного інтелекту — в навчанні, креативі, бізнесі чи повсякденному житті. Ви — режисер, ChatGPT — ваш інструмент!",
+    "logo": "img/subs/chatgpt.png",
+    "oldPrice": 25,
+    "oldPriceActive": true,
+    "price": 20,
+    "currency": "USD/міс",
+    "saveText": "Ваша економія — 5 USD/міс",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": true,
+      "hd": false,
+      "maxDevices": 3,
+      "ai": true,
+      "voice": true
+    }
+  },
+  {
+    "id": "2",
+    "name": "MEGOGO",
+    "shortDescription": "Головний розважальний портал України: фільми, спорт, аудіокниги та телебачення.",
+    "fullDescription": "MEGOGO — це не просто кінотеатр. Це улюблений серіал для всієї родини, прямі трансляції Ліги чемпіонів, дитячі мультики, аудіокниги та подкасти. Для кожного профілю — власні рекомендації й батьківський контроль. Дивись кіно, слухай новинки, отримуй доступ до спортивних трансляцій і архівів. MEGOGO об'єднує український і світовий контент, підтримує Smart TV, мобільні пристрої, Apple TV. Ваша сім'я не залишиться без розваг жодного дня!",
+    "logo": "img/subs/megogo.png",
+    "oldPrice": 199,
+    "oldPriceActive": true,
+    "price": 169,
+    "currency": "грн/міс",
+    "saveText": "Економія 30 грн/міс",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": true,
+      "hd": true,
+      "maxDevices": 5,
+      "audioOnly": true,
+      "kidsZone": true,
+      "family": true
+    }
+  },
+  {
+    "id": "1",
+    "name": "Netflix",
+    "shortDescription": "Глобальний лідер у світі відео: ексклюзиви, новинки, дитячий контент.",
+    "fullDescription": "Netflix — це стрімінговий сервіс №1 у світі: тисячі фільмів, серіалів, документалок, аніме й мультфільмів із якісною українською або оригінальною озвучкою. UHD 4K, Dolby Vision, індивідуальні профілі для кожного члена сімʼї, режим офлайн, автоматичні підказки і підбірки. Кожного місяця — нові релізи та світові премʼєри. Батьківський контроль, доброзичливий інтерфейс, підтримка всіх пристроїв. Netflix — це вечори без компромісів!",
+    "logo": "img/subs/netflix.png",
+    "oldPrice": 309,
+    "oldPriceActive": true,
+    "price": 249,
+    "currency": "грн/міс",
+    "saveText": "Ваша економія — 60 грн/міс",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": true,
+      "hd": true,
+      "ultraHd": true,
+      "maxDevices": 4,
+      "family": true,
+      "offline": true,
+      "kidsZone": true
+    }
+  },
+  {
+    "id": "3",
+    "name": "Spotify",
+    "shortDescription": "Твоя улюблена музика, подкасти, добірки — завжди поруч.",
+    "fullDescription": "Spotify — це 100+ мільйонів треків і подкастів, персональні добірки і премʼєрний доступ до нової музики. Офіційно в Україні, родинний доступ, рекомендації під настрій, офлайн-режим, ексклюзиви від артистів. Музика для тренувань, відпочинку, роботи — завжди зі Spotify.",
+    "logo": "img/subs/spotify.png",
+    "oldPrice": 179,
+    "oldPriceActive": true,
+    "price": 139,
+    "currency": "грн/міс",
+    "saveText": "Заощаджуєте 22%",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": true,
+      "audioOnly": true,
+      "offline": true,
+      "maxDevices": 6,
+      "family": true
+    }
+  },
+  {
+    "id": "4",
+    "name": "YouTube Premium",
+    "shortDescription": "Відео та музика без реклами, фоновий режим, офлайн.",
+    "fullDescription": "YouTube Premium — це YouTube і YouTube Music без жодної реклами. Дивіться відео й слухайте музику у фоні, завантажуйте для перегляду офлайн, перемикайтеся між пристроями без втрати прогресу. Сімейна підписка, ексклюзивні функції, простота керування через Google-акаунт. З Premium усе найкраще — без перерв!",
+    "logo": "img/subs/youtube.png",
+    "oldPrice": 119,
+    "oldPriceActive": true,
+    "price": 99,
+    "currency": "грн/міс",
+    "saveText": "Економія — 20 грн/міс",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": true,
+      "hd": true,
+      "maxDevices": 5,
+      "audioOnly": true,
+      "offline": true,
+      "family": true
+    }
+  },
+  {
+    "id": "5",
+    "name": "Sweet.TV",
+    "shortDescription": "Українське ТБ, кіно й мультики. Гарний настрій для всієї сімʼї.",
+    "fullDescription": "Sweet.TV — це 140+ телеканалів, премʼєрні фільми, топові серіали, архів передач, українське кіно, дитяча зона. Зручна навігація, декілька профілів, можливість дивитись на Smart TV, планшеті чи телефоні. Батьківський контроль, мультипрофільність і спеціальні підбірки для кожного. Ідеально для сімейних вечорів!",
+    "logo": "img/subs/sweet.png",
+    "oldPrice": 139,
+    "oldPriceActive": true,
+    "price": 109,
+    "currency": "грн/міс",
+    "saveText": "Економія — 30 грн/міс",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": true,
+      "hd": true,
+      "kidsZone": true,
+      "maxDevices": 4,
+      "family": true
+    }
+  },
+  {
+    "id": "6",
+    "name": "Monobank+",
+    "shortDescription": "Преміум-банк: кешбек, особистий менеджер, страховка подорожей.",
+    "fullDescription": "Monobank+ — це преміальна картка із підвищеним кешбеком, персональним менеджером, страховкою для подорожей і безкоштовними переказами. Додаток для iOS та Android, підтримка Apple Pay/Google Pay, перший місяць безкоштовно. Сервіс для тих, хто цінує зручність, швидкість та безпеку.",
+    "logo": "img/subs/monobank.png",
+    "oldPrice": 229,
+    "oldPriceActive": true,
+    "price": 199,
+    "currency": "грн/міс",
+    "saveText": "Економія — 30 грн/міс",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": false,
+      "hd": false,
+      "maxDevices": 1,
+      "banking": true,
+      "offline": false
+    }
+  },
+  {
+    "id": "7",
+    "name": "Apple One",
+    "shortDescription": "Музика, iCloud, TV+, Arcade, Fitness+ — усе в одному пакеті.",
+    "fullDescription": "Apple One — це єдиний пакет для всієї сімʼї: Apple Music, iCloud+ (200 ГБ), Apple TV+, Arcade, Fitness+. Дитячий контроль, сімейний доступ, універсальний кабінет для керування підписками з будь-якого Apple-пристрою. Зручність і економія — у кожній підписці.",
+    "logo": "img/subs/appleone.png",
+    "oldPrice": 349,
+    "oldPriceActive": true,
+    "price": 309,
+    "currency": "грн/міс",
+    "saveText": "Ваша економія — 40 грн/міс",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": true,
+      "hd": true,
+      "maxDevices": 6,
+      "family": true,
+      "audioOnly": true,
+      "offline": true,
+      "cloudStorage": "200ГБ"
+    }
+  },
+  {
+    "id": "8",
+    "name": "Setanta Sports",
+    "shortDescription": "Футбол, теніс, Формула-1, UFC — топові трансляції онлайн.",
+    "fullDescription": "Setanta Sports — це спортивний світ без кордонів: Ліга чемпіонів, АПЛ, теніс, UFC, Формула-1, архів трансляцій. Прямі ефіри, записи, підтримка Smart TV. Українські коментатори, висока якість, доступ з будь-якого пристрою. Вболівай із комфортом!",
+    "logo": "img/subs/setanta.png",
+    "oldPrice": 129,
+    "oldPriceActive": true,
+    "price": 109,
+    "currency": "грн/міс",
+    "saveText": "Економія — 20 грн/міс",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": true,
+      "hd": true,
+      "maxDevices": 3,
+      "sport": true
+    }
+  },
+  {
+    "id": "9",
+    "name": "Diia.Signature",
+    "shortDescription": "Е-підпис у смартфоні. Працює для бізнесу й громадян.",
+    "fullDescription": "Diia.Signature — це електронний підпис через Дію. Підписуйте PDF, отримуйте держпослуги, авторизуйтеся онлайн: швидко, надійно, без черг та паперів. Доступно в додатку та через web. Ваша цифрова свобода — у смартфоні.",
+    "logo": "img/subs/diia.png",
+    "oldPrice": 49,
+    "oldPriceActive": true,
+    "price": 39,
+    "currency": "грн/міс",
+    "saveText": "Економія — 10 грн/міс",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": false,
+      "hd": false,
+      "maxDevices": 1,
+      "gov": true
+    }
+  },
+  {
+    "id": "11",
+    "name": "Bookmate",
+    "shortDescription": "100 000 електронних і аудіокниг. Читай, слухай, відкривай нове.",
+    "fullDescription": "Bookmate відкриває світ літератури для кожного: книги українською, англійською, без реклами, зручна навігація, добірки від редакторів, аудіокниги й електронні видання. Режим офлайн, сімейний доступ, нотатки, закладки, синхронізація між пристроями. Вся бібліотека — у твоїй кишені.",
+    "logo": "img/subs/bookmate.png",
+    "oldPrice": 119,
+    "oldPriceActive": true,
+    "price": 99,
+    "currency": "грн/міс",
+    "saveText": "Економія — 20 грн/міс",
+    "details": {
+      "autoRenew": true,
+      "multiDevice": true,
+      "audioOnly": true,
+      "maxDevices": 5,
+      "offline": true,
+      "family": true
+    }
+  }
+]

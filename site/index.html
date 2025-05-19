@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ваш Сервіс</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/header.css"> <!-- Підключення стилів шапки -->
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -13,6 +12,47 @@
       padding: 0;
       color: #e4e4e4;
       background: #2c2c2c;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1f1f1f;
+      border-bottom: 2px solid #f1c40f;
+      padding: 15px 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      max-height: 50px;
+      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      color: #e4e4e4;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f1c40f;
     }
 
     .hero {
@@ -171,8 +211,21 @@
 </head>
 <body>
   <!-- Шапка -->
-  <div id="header"></div>
-  <script src="js/header.js"></script>
+  <header>
+    <div class="logo">
+      <img src="site/img/logo.png" alt="Ваш Сервіс">
+      <h1>Ваш Сервіс</h1>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Головна</a>
+      <a href="subscriptions.html">Підписки</a>
+      <a href="faq.html">Питання</a>
+      <a href="transactions.html">Транзакції</a>
+      <a href="support.html">Техпідтримка</a>
+      <a href="feedback.html">Відгуки</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+  </header>
 
   <!-- Головний блок -->
   <main>
@@ -222,7 +275,7 @@
     </section>
 
     <!-- Інструкція -->
-    <section id="how-it-works" class="instruction">
+    <section class="instruction">
       <video controls>
         <source src="videos/instruction.mp4" type="video/mp4">
         Ваш браузер не підтримує відео.
@@ -271,55 +324,48 @@
     <a href="contacts.html">Зв’язатися з нами</a>
   </footer>
 
-  <!-- Скрипт для завантаження шапки -->
-  <script src="js/header.js"></script>
-
-  <!-- Скрипт для каруселей -->
   <script>
+    // Нескінченна карусель для підписок
     const subscriptionsTrack = document.querySelector('.subscriptions-track');
+    const subscriptionsCards = document.querySelectorAll('.subscription-card');
+    const subscriptionsCardWidth = subscriptionsCards[0].offsetWidth + 20;
+    let subscriptionsPosition = 0;
+
+    function moveSubscriptionsCarousel() {
+      subscriptionsPosition -= subscriptionsCardWidth;
+      if (Math.abs(subscriptionsPosition) >= subscriptionsTrack.scrollWidth / 2) {
+        subscriptionsPosition = 0;
+      }
+      subscriptionsTrack.style.transform = `translateX(${subscriptionsPosition}px)`;
+    }
+
+    subscriptionsCards.forEach(card => {
+      const clone = card.cloneNode(true);
+      subscriptionsTrack.appendChild(clone);
+    });
+
+    setInterval(moveSubscriptionsCarousel, 3000);
+
+    // Нескінченна карусель для відгуків
     const reviewsTrack = document.querySelector('.reviews-track');
+    const reviewsCards = document.querySelectorAll('.review-card');
+    const reviewsCardWidth = reviewsCards[0].offsetWidth + 20;
+    let reviewsPosition = 0;
 
-    if (subscriptionsTrack) {
-      const subscriptionsCards = document.querySelectorAll('.subscription-card');
-      const subscriptionsCardWidth = subscriptionsCards[0].offsetWidth + 20;
-      let subscriptionsPosition = 0;
-
-      function moveSubscriptionsCarousel() {
-        subscriptionsPosition -= subscriptionsCardWidth;
-        if (Math.abs(subscriptionsPosition) >= subscriptionsTrack.scrollWidth / 2) {
-          subscriptionsPosition = 0;
-        }
-        subscriptionsTrack.style.transform = `translateX(${subscriptionsPosition}px)`;
+    function moveReviewsCarousel() {
+      reviewsPosition -= reviewsCardWidth;
+      if (Math.abs(reviewsPosition) >= reviewsTrack.scrollWidth / 2) {
+        reviewsPosition = 0;
       }
-
-      subscriptionsCards.forEach(card => {
-        const clone = card.cloneNode(true);
-        subscriptionsTrack.appendChild(clone);
-      });
-
-      setInterval(moveSubscriptionsCarousel, 3000);
+      reviewsTrack.style.transform = `translateX(${reviewsPosition}px)`;
     }
 
-    if (reviewsTrack) {
-      const reviewsCards = document.querySelectorAll('.review-card');
-      const reviewsCardWidth = reviewsCards[0].offsetWidth + 20;
-      let reviewsPosition = 0;
+    reviewsCards.forEach(card => {
+      const clone = card.cloneNode(true);
+      reviewsTrack.appendChild(clone);
+    });
 
-      function moveReviewsCarousel() {
-        reviewsPosition -= reviewsCardWidth;
-        if (Math.abs(reviewsPosition) >= reviewsTrack.scrollWidth / 2) {
-          reviewsPosition = 0;
-        }
-        reviewsTrack.style.transform = `translateX(${reviewsPosition}px)`;
-      }
-
-      reviewsCards.forEach(card => {
-        const clone = card.cloneNode(true);
-        reviewsTrack.appendChild(clone);
-      });
-
-      setInterval(moveReviewsCarousel, 4000);
-    }
+    setInterval(moveReviewsCarousel, 4000);
   </script>
 </body>
 </html>

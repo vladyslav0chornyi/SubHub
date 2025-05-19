@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Деталі підписки - Ваш Сервіс</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/subscription-details.css">
+</head>
+<body>
+  <!-- Динамічна шапка -->
+  <div id="header"></div>
+
+  <!-- Головний блок -->
+  <main class="main">
+    <div class="details-container">
+      <h2>Деталі підписки</h2>
+
+      <!-- Інформація про підписку -->
+      <div class="subscription-info">
+        <h3>Назва: Chat GPT Plus</h3>
+        <p>Опис: Підписка на доступ до додаткових функцій Chat GPT.</p>
+        <p>Дата початку: 2025-01-01</p>
+        <p>Дата закінчення: 2025-12-31</p>
+        <p>Вартість: $20/місяць</p>
+      </div>
+
+      <!-- Переваги підписки -->
+      <div class="benefits">
+        <h3>Переваги платної версії</h3>
+        <div class="benefit-item">
+          <img src="icons/no-ads.png" alt="Без реклами">
+          <p>Без реклами</p>
+        </div>
+        <div class="benefit-item">
+          <img src="icons/speed.png" alt="Швидший доступ">
+          <p>Швидший доступ до сервісу</p>
+        </div>
+        <div class="benefit-item">
+          <img src="icons/premium-features.png" alt="Додаткові функції">
+          <p>Додаткові преміум-функції</p>
+        </div>
+      </div>
+
+      <!-- Дії -->
+      <div class="actions">
+        <button onclick="goBack()">Повернутися</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Динамічний футер -->
+  <div id="footer"></div>
+
+  <script src="js/main.js"></script>
+  <script>
+    function goBack() {
+      window.location.href = 'subscriptions.html';
+    }
+  </script>
+</body>
+</html>

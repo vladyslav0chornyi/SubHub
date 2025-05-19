@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Відгуки - Ваш Сервіс</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/feedback.css">
+</head>
+<body>
+  <!-- Динамічна шапка -->
+  <div id="header"></div>
+
+  <!-- Головний блок -->
+  <main class="main">
+    <div class="feedback-container">
+      <h2>Відгуки</h2>
+
+      <!-- Форма для залишення відгуку -->
+      <div class="feedback-form">
+        <h3>Залиште свій відгук</h3>
+        <form>
+          <label for="name">Ім'я (необов'язково, якщо ви залогінені)</label>
+          <input type="text" id="name" placeholder="Ваше ім'я">
+
+          <label for="email">Email (необов'язково, якщо ви залогінені)</label>
+          <input type="email" id="email" placeholder="Ваш email">
+
+          <label for="rating">Рейтинг</label>
+          <select id="rating">
+            <option value="1">1 зірка</option>
+            <option value="2">2 зірки</option>
+            <option value="3">3 зірки</option>
+            <option value="4">4 зірки</option>
+            <option value="5">5 зірок</option>
+          </select>
+
+          <label for="feedback">Ваш відгук (до 500 символів)</label>
+          <textarea id="feedback" maxlength="500" placeholder="Напишіть свій відгук тут..."></textarea>
+
+          <button type="submit">Надіслати</button>
+        </form>
+      </div>
+
+      <!-- Список відгуків -->
+      <ul class="feedback-list">
+        <li class="feedback-item">
+          <div class="user-info">Користувач: Іван Іванов</div>
+          <div class="feedback-text">Чудовий сервіс! Рекомендую всім.</div>
+          <div class="feedback-rating">★★★★★</div>
+        </li>
+        <li class="feedback-item">
+          <div class="user-info">Користувач: a***@example.com</div>
+          <div class="feedback-text">Зручний інтерфейс, але були проблеми з оплатою.</div>
+          <div class="feedback-rating">★★★☆☆</div>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Динамічний футер -->
+  <div id="footer"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
